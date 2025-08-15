@@ -1,5 +1,69 @@
 [
   {
+    "id": "1f0cb515-bb6a-80d9-8b29-fcaeeee0ec60",
+    "venue": "QT",
+    "location": "Premariacco",
+    "city": "",
+    "date": "26 luglio 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.0606866,
+      "lng": 13.3947783,
+      "display_name": "Premariacco, Udine, Friuli-Venezia Giulia, 33040, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>QT</strong><br>Premariacco<br>26 luglio 2025 - 21:00"
+  },
+  {
+    "id": "207cb515-bb6a-8025-9674-cfdafaade349",
+    "venue": "Verde Mare Club",
+    "location": "Caorle",
+    "city": "",
+    "date": "18 luglio 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.9655685,
+      "lng": 12.657104,
+      "display_name": "Via Caorle, San Giorgio, Pordenone / Pordenon, Friuli-Venezia Giulia, 33170, Italia",
+      "type": "residential",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Verde Mare Club</strong><br>Caorle<br>18 luglio 2025 - 21:00"
+  },
+  {
+    "id": "1f0cb515-bb6a-807d-bd0c-f22b927a7cfd",
+    "venue": "La Corte",
+    "location": "Basaldella",
+    "city": "",
+    "date": "11 luglio 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.0287454,
+      "lng": 13.2030471,
+      "display_name": "Basaldella / Basandiele, Campoformido / Cjampfuarmit, Udine, Friuli-Venezia Giulia, 33030, Italia",
+      "type": "village",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>La Corte</strong><br>Basaldella<br>11 luglio 2025 - 21:00"
+  },
+  {
+    "id": "194cb515-bb6a-809e-a660-da3a95c61140",
+    "venue": "Sagra di S.Pietro",
+    "location": "Gemona",
+    "city": "",
+    "date": "29 giugno 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.2770072,
+      "lng": 13.1401049,
+      "display_name": "Gemona del Friuli / Glemone, Udine, Friuli-Venezia Giulia, 33013, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Sagra di S.Pietro</strong><br>Gemona<br>29 giugno 2025 - 21:00"
+  },
+  {
     "id": "14dcb515-bb6a-80fb-930e-e550be8590a6",
     "venue": "Da Edy",
     "location": "Remanzacco",
@@ -12,6 +76,38 @@
       "display_name": "Da Edy, Strada San Martino, Remanzacco / Remanzâs, Udine, Friuli-Venezia Giulia, 33047, Italia"
     },
     "popupText": "<strong>Da Edy</strong><br>Remanzacco<br>28 giugno 2025 - 21:00"
+  },
+  {
+    "id": "207cb515-bb6a-80d4-89b4-e50dc5e14310",
+    "venue": "Bistro Bosio",
+    "location": "Staranzano",
+    "city": "",
+    "date": "20 giugno 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8058213,
+      "lng": 13.5002599,
+      "display_name": "Staranzano, Gorizia, Friuli-Venezia Giulia, 34079, Italia",
+      "type": "administrative",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Bistro Bosio</strong><br>Staranzano<br>20 giugno 2025 - 21:00"
+  },
+  {
+    "id": "1cdcb515-bb6a-804b-bbff-cd94d782e9ed",
+    "venue": "Crese Cup",
+    "location": "San Dorligo della Valle",
+    "city": "",
+    "date": "14 giugno 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.612602,
+      "lng": 13.8535061,
+      "display_name": "San Dorligo della Valle / Dolina, Trieste, Friuli-Venezia Giulia, 34018, Italia",
+      "type": "administrative",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Crese Cup</strong><br>San Dorligo della Valle<br>14 giugno 2025 - 21:00"
   },
   {
     "id": "194cb515-bb6a-8097-9d34-d8c6cedbbd32",
@@ -112,6 +208,22 @@
     "popupText": "<strong>Plan di Paluz</strong><br>Tarcento<br>7 febbraio 2025 - 21:00"
   },
   {
+    "id": "142cb515-bb6a-80f0-bbca-fc58803afd77",
+    "venue": "Pizzeria Spaccanapoli",
+    "location": "Strassoldo",
+    "city": "",
+    "date": "31 gennaio 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8603221,
+      "lng": 13.3228248,
+      "display_name": "Strassoldo / Strassolt, Cervignano del Friuli / Çarvignan, Udine, Friuli-Venezia Giulia, 33052, Italia",
+      "type": "village",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Pizzeria Spaccanapoli</strong><br>Strassoldo<br>31 gennaio 2025 - 21:00"
+  },
+  {
     "id": "127cb515-bb6a-8090-8b61-d490b8fc91c9",
     "venue": "Rorù",
     "location": "Cervignano",
@@ -124,6 +236,70 @@
       "display_name": "Rorú, 5, Via Costantino Dardi, Scodovacca / Scodovacje, Cervignano del Friuli / Çarvignan, Udine, Friuli-Venezia Giulia, 33052, Italia"
     },
     "popupText": "<strong>Rorù</strong><br>Cervignano<br>21 dicembre 2024 - 21:00"
+  },
+  {
+    "id": "127cb515-bb6a-8077-a0e2-c407d99cd494",
+    "venue": "Live Drink",
+    "location": "Jesolo",
+    "city": "",
+    "date": "14 dicembre 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.7462447,
+      "lng": 13.4840326,
+      "display_name": "Casale Jesolo, Grado / Grau, Gorizia, Friuli-Venezia Giulia, 34073, Italia",
+      "type": "farmyard",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Live Drink</strong><br>Jesolo<br>14 dicembre 2024 - 21:00"
+  },
+  {
+    "id": "107cb515-bb6a-80f4-9fd0-d8b78c60bb6a",
+    "venue": "Bisboccia 2.0",
+    "location": "Turriaco",
+    "city": "",
+    "date": "9 novembre 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8213706,
+      "lng": 13.4442965,
+      "display_name": "Turriaco / Turiàc / Turjak, Gorizia, Friuli-Venezia Giulia, 34070, Italia",
+      "type": "administrative",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Bisboccia 2.0</strong><br>Turriaco<br>9 novembre 2024 - 21:00"
+  },
+  {
+    "id": "107cb515-bb6a-80bd-b5ba-fa61d633a227",
+    "venue": "Festa privata",
+    "location": "Reana del Rojale",
+    "city": "",
+    "date": "13 ottobre 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.1457361,
+      "lng": 13.2351201,
+      "display_name": "Reana del Rojale / Reane dal Roiâl, Udine, Friuli-Venezia Giulia, 33010, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Festa privata</strong><br>Reana del Rojale<br>13 ottobre 2024 - 21:00"
+  },
+  {
+    "id": "d9f15d5c-38af-4007-b329-23fd36e0c425",
+    "venue": "Lanbeer",
+    "location": "San Daniele",
+    "city": "",
+    "date": "6 settembre 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.071261,
+      "lng": 13.2338409,
+      "display_name": "San Daniele, Viale San Daniele, Borgo Villalta / Borc di Vilalte, San Marco, Udine / Udin, Udine, Friuli-Venezia Giulia, 33100, Italia",
+      "type": "bar",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Lanbeer</strong><br>San Daniele<br>6 settembre 2024 - 21:00"
   },
   {
     "id": "9679e777-3866-4914-837c-1dc1c595195c",
@@ -140,6 +316,22 @@
     "popupText": "<strong>Sapori Divini</strong><br>Tarcento<br>30 agosto 2024 - 21:00"
   },
   {
+    "id": "1c166c85-8683-4266-9fe8-1fb8d11e760d",
+    "venue": "Live Drink",
+    "location": "Jesolo",
+    "city": "",
+    "date": "23 agosto 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.7462447,
+      "lng": 13.4840326,
+      "display_name": "Casale Jesolo, Grado / Grau, Gorizia, Friuli-Venezia Giulia, 34073, Italia",
+      "type": "farmyard",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Live Drink</strong><br>Jesolo<br>23 agosto 2024 - 21:00"
+  },
+  {
     "id": "dce7cac1-501c-4b64-bb9d-ef5acf9566f4",
     "venue": "4pr",
     "location": "Farra",
@@ -154,6 +346,22 @@
     "popupText": "<strong>4pr</strong><br>Farra<br>17 agosto 2024 - 21:00"
   },
   {
+    "id": "74afed0b-7ac4-4668-8dc6-9795f6f5e696",
+    "venue": "Bisboccia",
+    "location": "Turriaco",
+    "city": "",
+    "date": "10 agosto 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8213706,
+      "lng": 13.4442965,
+      "display_name": "Turriaco / Turiàc / Turjak, Gorizia, Friuli-Venezia Giulia, 34070, Italia",
+      "type": "administrative",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Bisboccia</strong><br>Turriaco<br>10 agosto 2024 - 21:00"
+  },
+  {
     "id": "b0d4b0c2-bdf0-4ddb-85bf-6c0381617abd",
     "venue": "Al Ranch",
     "location": "Budoia",
@@ -166,6 +374,22 @@
       "display_name": "Agriturismo al Ranch, Via Pedemontana Occidentale, Dardago / Dardâc, Budoia / Budoie, Pordenone / Pordenon, Friuli-Venezia Giulia, 33070, Italia"
     },
     "popupText": "<strong>Al Ranch</strong><br>Budoia<br>3 agosto 2024 - 21:00"
+  },
+  {
+    "id": "439c9fb9-0761-4d6f-bb72-a354acaf9deb",
+    "venue": "Orion’s Pub",
+    "location": "Sevegliano",
+    "city": "",
+    "date": "27 luglio 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8874908,
+      "lng": 13.3017956,
+      "display_name": "Sevegliano / Sevean, Bagnaria Arsa / Bagnarie, Udine, Friuli-Venezia Giulia, 33050, Italia",
+      "type": "village",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Orion’s Pub</strong><br>Sevegliano<br>27 luglio 2024 - 21:00"
   },
   {
     "id": "d42ec9f1-2e63-44aa-a6ca-b6d6c58eade0",
@@ -194,6 +418,22 @@
       "display_name": "La Ferrata, 4, Località Strada Provinciale Ponte Madrisio, Madrisio / Madrîs, Varmo / Vildivar, Udine, Friuli-Venezia Giulia, 33030, Italia"
     },
     "popupText": "<strong>La Ferrata</strong><br>Varmo<br>12 luglio 2024 - 21:00"
+  },
+  {
+    "id": "3d1d8494-aac3-4feb-a2d1-e1bd6af46976",
+    "venue": "Al Posto Giusto ",
+    "location": "Spessa di Cividale",
+    "city": "",
+    "date": "29 giugno 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.0437473,
+      "lng": 13.4452213,
+      "display_name": "Cimitero di Spessa, Spessa Bassa / Spesse Basse, Cividale del Friuli, Udine, Friuli-Venezia Giulia, 33043, Italia",
+      "type": "cemetery",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Al Posto Giusto </strong><br>Spessa di Cividale<br>29 giugno 2024 - 21:00"
   },
   {
     "id": "108fef05-0cd8-4379-89ef-250b545d2cc1",
