@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Sito web GOasis Tribute Band",
   "scripts": {
-    "fetch-concerts": "node scripts/fetch-concerts.js"
+    "fetch-concerts": "node scripts/fetch-concerts.js",
+    "fetch-map": "node scripts/fetch-past-concerts-map.js"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14"

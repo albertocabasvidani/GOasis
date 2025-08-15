@@ -229,6 +229,47 @@ section {
     font-style: italic;
 }
 
+/* Map Section */
+.map-section {
+    background: white;
+}
+
+.map-section p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.concert-map {
+    height: 400px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: none; /* Nascosto fino al caricamento */
+}
+
+.map-loading {
+    text-align: center;
+    color: #666;
+    padding: 3rem;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Stili personalizzati per popup mappa */
+.leaflet-popup-content {
+    text-align: center;
+    line-height: 1.4;
+}
+
+.leaflet-popup-content strong {
+    color: #ff6b35;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
 /* Gallery Section */
 .gallery-section {
     background: white;
