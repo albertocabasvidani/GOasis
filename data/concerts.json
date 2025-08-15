@@ -1,24 +1,112 @@
 [
   {
-    "day": 15,
-    "month": "GEN",
-    "year": 2025,
-    "fullDate": "2025-01-15",
-    "time": "21:30",
-    "venue": "Blue Note",
-    "city": "Milano",
-    "address": "Via Borsieri 37, Milano",
-    "notes": "Apertura porte ore 20:30"
+    "day": 25,
+    "month": "FEB",
+    "year": 2024,
+    "fullDate": "2024-02-25T18:00:00.000+01:00",
+    "time": "21:00",
+    "venue": "La Bettola",
+    "city": "",
+    "address": "",
+    "notes": ""
   },
   {
-    "day": 22,
-    "month": "FEB",
-    "year": 2025,
-    "fullDate": "2025-02-22",
-    "time": "22:00",
-    "venue": "Rock Cafè",
-    "city": "Roma",
-    "address": "Via del Corso 123, Roma",
-    "notes": "Serata speciale Britpop"
+    "day": 12,
+    "month": "APR",
+    "year": 2024,
+    "fullDate": "2024-04-12T20:30:00.000+02:00",
+    "time": "21:00",
+    "venue": "Kulturni Dom",
+    "city": "",
+    "address": "",
+    "notes": ""
+  },
+  {
+    "day": 17,
+    "month": "MAG",
+    "year": 2024,
+    "fullDate": "2024-05-17T20:30:00.000+02:00",
+    "time": "21:00",
+    "venue": "Plan di Paluz",
+    "city": "",
+    "address": "",
+    "notes": ""
+  },
+  {
+    "day": 31,
+    "month": "MAG",
+    "year": 2024,
+    "fullDate": "2024-05-31T21:00:00.000+02:00",
+    "time": "21:00",
+    "venue": "Ippodromo Montebello",
+    "city": "",
+    "address": "",
+    "notes": ""
+  },
+  {
+    "day": 29,
+    "month": "GIU",
+    "year": 2024,
+    "fullDate": "2024-06-29T21:00:00.000+02:00",
+    "time": "21:00",
+    "venue": "Al Posto Giusto ",
+    "city": "",
+    "address": "",
+    "notes": ""
+  },
+  {
+    "day": 12,
+    "month": "LUG",
+    "year": 2024,
+    "fullDate": "2024-07-12T21:00:00.000+02:00",
+    "time": "21:00",
+    "venue": "La Ferrata",
+    "city": "",
+    "address": "",
+    "notes": ""
+  },
+  {
+    "day": 26,
+    "month": "LUG",
+    "year": 2024,
+    "fullDate": "2024-07-26T21:30:00.000+02:00",
+    "time": "21:00",
+    "venue": "All’Invidia",
+    "city": "",
+    "address": "",
+    "notes": ""
+  },
+  {
+    "day": 27,
+    "month": "LUG",
+    "year": 2024,
+    "fullDate": "2024-07-27T21:00:00.000+02:00",
+    "time": "21:00",
+    "venue": "Orion’s Pub",
+    "city": "",
+    "address": "",
+    "notes": ""
+  },
+  {
+    "day": 3,
+    "month": "AGO",
+    "year": 2024,
+    "fullDate": "2024-08-03",
+    "time": "21:00",
+    "venue": "Al Ranch",
+    "city": "",
+    "address": "",
+    "notes": ""
+  },
+  {
+    "day": 10,
+    "month": "AGO",
+    "year": 2024,
+    "fullDate": "2024-08-10T21:00:00.000+02:00",
+    "time": "21:00",
+    "venue": "Bisboccia",
+    "city": "",
+    "address": "",
+    "notes": ""
   }
 ]
