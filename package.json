@@ -1,0 +1,11 @@
+{
+  "name": "goasis-website",
+  "version": "1.0.0",
+  "description": "Sito web GOasis Tribute Band",
+  "scripts": {
+    "fetch-concerts": "node scripts/fetch-concerts.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.14"
+  }
+}

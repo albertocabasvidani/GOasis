@@ -200,6 +200,19 @@ section {
     margin-bottom: 0.3rem;
 }
 
+.details .notes {
+    font-style: italic;
+    color: #888;
+    margin-top: 0.5rem;
+}
+
+.loading {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+    font-style: italic;
+}
+
 /* Gallery Section */
 .gallery-section {
     background: white;

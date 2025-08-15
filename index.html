@@ -62,29 +62,9 @@
         <section id="concerti" class="concerts-section">
             <div class="container">
                 <h2>Prossimi Concerti</h2>
-                <div class="concert-list">
-                    <div class="concert-item">
-                        <div class="date">
-                            <span class="day">15</span>
-                            <span class="month">SET</span>
-                        </div>
-                        <div class="details">
-                            <h3>Live Club - Milano</h3>
-                            <p>Via Fantoli 9, Milano</p>
-                            <p>Ore 21:00</p>
-                        </div>
-                    </div>
-                    <div class="concert-item">
-                        <div class="date">
-                            <span class="day">22</span>
-                            <span class="month">OTT</span>
-                        </div>
-                        <div class="details">
-                            <h3>Rock Pub - Roma</h3>
-                            <p>Via del Rock 123, Roma</p>
-                            <p>Ore 22:00</p>
-                        </div>
-                    </div>
+                <div class="concert-list" id="concert-list">
+                    <!-- I concerti verranno caricati dinamicamente -->
+                    <div class="loading">Caricamento concerti...</div>
                 </div>
             </div>
         </section>
@@ -136,5 +116,65 @@
             <p>Tribute to Oasis - Non affiliati ufficialmente con la band originale</p>
         </div>
     </footer>
+    
+    <script>
+        // Carica i concerti dal file JSON
+        async function loadConcerts() {
+            const concertList = document.getElementById('concert-list');
+            
+            try {
+                const response = await fetch('data/concerts.json');
+                
+                if (!response.ok) {
+                    throw new Error('File concerti non trovato');
+                }
+                
+                const concerts = await response.json();
+                
+                if (concerts.length === 0) {
+                    concertList.innerHTML = '<p style="text-align: center; color: #666;">Nessun concerto programmato al momento</p>';
+                    return;
+                }
+                
+                // Genera HTML per ogni concerto
+                const concertsHTML = concerts.map(concert => `
+                    <div class="concert-item">
+                        <div class="date">
+                            <span class="day">${concert.day}</span>
+                            <span class="month">${concert.month}</span>
+                        </div>
+                        <div class="details">
+                            <h3>${concert.venue}${concert.city ? ' - ' + concert.city : ''}</h3>
+                            ${concert.address ? `<p>${concert.address}</p>` : ''}
+                            <p>Ore ${concert.time}</p>
+                            ${concert.notes ? `<p class="notes">${concert.notes}</p>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+                
+                concertList.innerHTML = concertsHTML;
+                
+            } catch (error) {
+                console.error('Errore caricamento concerti:', error);
+                // Mostra concerti di esempio se il file non esiste ancora
+                concertList.innerHTML = `
+                    <div class="concert-item">
+                        <div class="date">
+                            <span class="day">TBD</span>
+                            <span class="month">---</span>
+                        </div>
+                        <div class="details">
+                            <h3>Prossimamente</h3>
+                            <p>Nuove date in arrivo!</p>
+                            <p>Seguici sui social per aggiornamenti</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Carica i concerti quando la pagina è pronta
+        document.addEventListener('DOMContentLoaded', loadConcerts);
+    </script>
 </body>
 </html>
