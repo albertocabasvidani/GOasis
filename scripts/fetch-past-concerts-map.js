@@ -56,7 +56,7 @@ async function geocodeVenue(venue, location, city) {
 
 async function fetchPastConcertsForMap() {
   try {
-    console.log('Fetching past concerts for map...');
+    console.log('Fetching past concerts for map from Notion...');
     
     // Query del database Notion - solo concerti passati
     const today = new Date().toISOString().split('T')[0];
