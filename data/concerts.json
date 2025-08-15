@@ -9,5 +9,16 @@
     "city": "Milano",
     "address": "Via Borsieri 37, Milano",
     "notes": "Apertura porte ore 20:30"
+  },
+  {
+    "day": 22,
+    "month": "FEB",
+    "year": 2025,
+    "fullDate": "2025-02-22",
+    "time": "22:00",
+    "venue": "Rock Cafè",
+    "city": "Roma",
+    "address": "Via del Corso 123, Roma",
+    "notes": "Serata speciale Britpop"
   }
 ]
