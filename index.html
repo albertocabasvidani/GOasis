@@ -192,7 +192,13 @@
             const mapLoading = document.getElementById('map-loading');
             
             try {
-                const response = await fetch(`data/past-concerts-map.json?v=${Date.now()}`);
+                const response = await fetch(`data/past-concerts-map.json?cache=bust&v=${Date.now()}`, {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache'
+                    }
+                });
                 
                 if (!response.ok) {
                     throw new Error('Dati mappa non trovati');
