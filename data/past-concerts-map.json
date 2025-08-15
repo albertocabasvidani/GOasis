@@ -1,44 +1,254 @@
 [
   {
-    "id": "example1",
-    "venue": "La Bettola",
-    "location": "Udine",
+    "id": "14dcb515-bb6a-80fb-930e-e550be8590a6",
+    "venue": "Da Edy",
+    "location": "Remanzacco",
     "city": "",
-    "date": "25 febbraio 2024",
+    "date": "28 giugno 2025",
     "time": "21:00",
     "coordinates": {
-      "lat": 46.0569,
-      "lng": 13.2375,
-      "display_name": "La Bettola, Udine, Friuli-Venezia Giulia, Italia"
+      "lat": 46.0799452,
+      "lng": 13.3094713,
+      "display_name": "Da Edy, Strada San Martino, Remanzacco / Remanzâs, Udine, Friuli-Venezia Giulia, 33047, Italia"
     },
-    "popupText": "<strong>La Bettola</strong><br>Udine<br>25 febbraio 2024 - 21:00"
+    "popupText": "<strong>Da Edy</strong><br>Remanzacco<br>28 giugno 2025 - 21:00"
   },
   {
-    "id": "example2", 
+    "id": "194cb515-bb6a-8097-9d34-d8c6cedbbd32",
+    "venue": "Bistrot Bosio",
+    "location": "Staranzano",
+    "city": "",
+    "date": "22 maggio 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8066266,
+      "lng": 13.5148144,
+      "display_name": "Panificio Pasticceria Bistrot Bosio, 153, Via Trieste, Villaraspa, Bistrigna, Staranzano, Gorizia, Friuli-Venezia Giulia, 34079, Italia"
+    },
+    "popupText": "<strong>Bistrot Bosio</strong><br>Staranzano<br>22 maggio 2025 - 21:00"
+  },
+  {
+    "id": "194cb515-bb6a-8068-81ba-ed54e2b98e60",
+    "venue": "Casa Bianca",
+    "location": "San Vito al Torre",
+    "city": "",
+    "date": "1 maggio 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.892511,
+      "lng": 13.3689731,
+      "display_name": "Via Casa Bianca, Crauglio / Cravuì, San Vito al Torre / San Vît de Tor, Udine, Friuli-Venezia Giulia, 33050, Italia"
+    },
+    "popupText": "<strong>Casa Bianca</strong><br>San Vito al Torre<br>1 maggio 2025 - 21:00"
+  },
+  {
+    "id": "127cb515-bb6a-80ac-bd9e-f6e2d8dd23f4",
+    "venue": "Hamerica’s",
+    "location": "Trieste",
+    "city": "",
+    "date": "17 aprile 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.6522716,
+      "lng": 13.7828742,
+      "display_name": "Hamerica's Trieste, 39, Viale Venti Settembre, Scoglietto, Città Nuova-Barriera Nuova-San Vito-Città Vecchia, Trieste, Friuli-Venezia Giulia, 34125, Italia"
+    },
+    "popupText": "<strong>Hamerica’s</strong><br>Trieste<br>17 aprile 2025 - 21:00"
+  },
+  {
+    "id": "1accb515-bb6a-807e-9d0c-f4982d5711aa",
+    "venue": "White Cafè",
+    "location": "Trieste",
+    "city": "",
+    "date": "21 marzo 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.6511501,
+      "lng": 13.7733425,
+      "display_name": "White Cafe, 21a, Via Genova, Borgo Teresiano, Città Nuova-Barriera Nuova-San Vito-Città Vecchia, Trieste, Friuli-Venezia Giulia, 34121, Italia"
+    },
+    "popupText": "<strong>White Cafè</strong><br>Trieste<br>21 marzo 2025 - 21:00"
+  },
+  {
+    "id": "127cb515-bb6a-805f-8e87-e2293524bd2f",
+    "venue": "Hamerica’s",
+    "location": "Trieste",
+    "city": "",
+    "date": "13 febbraio 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.6522716,
+      "lng": 13.7828742,
+      "display_name": "Hamerica's Trieste, 39, Viale Venti Settembre, Scoglietto, Città Nuova-Barriera Nuova-San Vito-Città Vecchia, Trieste, Friuli-Venezia Giulia, 34125, Italia"
+    },
+    "popupText": "<strong>Hamerica’s</strong><br>Trieste<br>13 febbraio 2025 - 21:00"
+  },
+  {
+    "id": "11acb515-bb6a-8028-8a71-cd95d4b3694f",
+    "venue": "Club Twenty One",
+    "location": "Poggio Terza Armata",
+    "city": "",
+    "date": "8 febbraio 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8866504,
+      "lng": 13.5144922,
+      "display_name": "Twenty One Club, Via Quattro Novembre, Poggio Terza Armata - Sdraussina, Sagrado / Sagrât / Zegraj, Gorizia, Friuli-Venezia Giulia, 34078, Italia"
+    },
+    "popupText": "<strong>Club Twenty One</strong><br>Poggio Terza Armata<br>8 febbraio 2025 - 21:00"
+  },
+  {
+    "id": "11acb515-bb6a-8047-b5e7-c61202b6dc77",
+    "venue": "Plan di Paluz",
+    "location": "Tarcento",
+    "city": "",
+    "date": "7 febbraio 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.2217398,
+      "lng": 13.226397,
+      "display_name": "Via Plan di Paluz, Tarcint, Oltretorre / Borc di Arman, Ciseriis, Tarcento / Tarcint, Udine, Friuli-Venezia Giulia, 33017, Italia"
+    },
+    "popupText": "<strong>Plan di Paluz</strong><br>Tarcento<br>7 febbraio 2025 - 21:00"
+  },
+  {
+    "id": "127cb515-bb6a-8090-8b61-d490b8fc91c9",
+    "venue": "Rorù",
+    "location": "Cervignano",
+    "city": "",
+    "date": "21 dicembre 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8162762,
+      "lng": 13.3549474,
+      "display_name": "Rorú, 5, Via Costantino Dardi, Scodovacca / Scodovacje, Cervignano del Friuli / Çarvignan, Udine, Friuli-Venezia Giulia, 33052, Italia"
+    },
+    "popupText": "<strong>Rorù</strong><br>Cervignano<br>21 dicembre 2024 - 21:00"
+  },
+  {
+    "id": "9679e777-3866-4914-837c-1dc1c595195c",
+    "venue": "Sapori Divini",
+    "location": "Tarcento",
+    "city": "",
+    "date": "30 agosto 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.2190686,
+      "lng": 13.2413487,
+      "display_name": "Sapori DiVini, 50/2, Via Bernadia, Sedilis / Sidilis, Ciseriis, Tarcento / Tarcint, Udine, Friuli-Venezia Giulia, 33017, Italia"
+    },
+    "popupText": "<strong>Sapori Divini</strong><br>Tarcento<br>30 agosto 2024 - 21:00"
+  },
+  {
+    "id": "dce7cac1-501c-4b64-bb9d-ef5acf9566f4",
+    "venue": "4pr",
+    "location": "Farra",
+    "city": "",
+    "date": "17 agosto 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.9019242,
+      "lng": 13.5165495,
+      "display_name": "4PR, Via Gradisca, Farra d'Isonzo / Fara, Gorizia, Friuli-Venezia Giulia, 34072, Italia"
+    },
+    "popupText": "<strong>4pr</strong><br>Farra<br>17 agosto 2024 - 21:00"
+  },
+  {
+    "id": "b0d4b0c2-bdf0-4ddb-85bf-6c0381617abd",
+    "venue": "Al Ranch",
+    "location": "Budoia",
+    "city": "",
+    "date": "3 agosto 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.0536506,
+      "lng": 12.5476403,
+      "display_name": "Agriturismo al Ranch, Via Pedemontana Occidentale, Dardago / Dardâc, Budoia / Budoie, Pordenone / Pordenon, Friuli-Venezia Giulia, 33070, Italia"
+    },
+    "popupText": "<strong>Al Ranch</strong><br>Budoia<br>3 agosto 2024 - 21:00"
+  },
+  {
+    "id": "d42ec9f1-2e63-44aa-a6ca-b6d6c58eade0",
+    "venue": "All’Invidia",
+    "location": "Pavia di Udine",
+    "city": "",
+    "date": "26 luglio 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.9940335,
+      "lng": 13.2692514,
+      "display_name": "All'Invidia, 9, Via Jacopo Marinoni, Zona Industriale Udinese, Cortello / Curtiel, Pavia di Udine / Pavie, Udine, Friuli-Venezia Giulia, 33050, Italia"
+    },
+    "popupText": "<strong>All’Invidia</strong><br>Pavia di Udine<br>26 luglio 2024 - 21:00"
+  },
+  {
+    "id": "b493e71c-a13f-4f5c-83d6-37272b8144d2",
+    "venue": "La Ferrata",
+    "location": "Varmo",
+    "city": "",
+    "date": "12 luglio 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8731741,
+      "lng": 12.9987917,
+      "display_name": "La Ferrata, 4, Località Strada Provinciale Ponte Madrisio, Madrisio / Madrîs, Varmo / Vildivar, Udine, Friuli-Venezia Giulia, 33030, Italia"
+    },
+    "popupText": "<strong>La Ferrata</strong><br>Varmo<br>12 luglio 2024 - 21:00"
+  },
+  {
+    "id": "108fef05-0cd8-4379-89ef-250b545d2cc1",
+    "venue": "Ippodromo Montebello",
+    "location": "Trieste",
+    "city": "",
+    "date": "31 maggio 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.6386543,
+      "lng": 13.7920949,
+      "display_name": "Ippodromo di Montebello, Via del Destriero, Maddalena, San Giovanni-Chiadino-Rozzol, Trieste, Friuli-Venezia Giulia, 31438, Italia"
+    },
+    "popupText": "<strong>Ippodromo Montebello</strong><br>Trieste<br>31 maggio 2024 - 21:00"
+  },
+  {
+    "id": "9fa1bda6-89c6-4392-a59f-1ad6293484cf",
+    "venue": "Plan di Paluz",
+    "location": "Tarcento",
+    "city": "",
+    "date": "17 maggio 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.2217398,
+      "lng": 13.226397,
+      "display_name": "Via Plan di Paluz, Tarcint, Oltretorre / Borc di Arman, Ciseriis, Tarcento / Tarcint, Udine, Friuli-Venezia Giulia, 33017, Italia"
+    },
+    "popupText": "<strong>Plan di Paluz</strong><br>Tarcento<br>17 maggio 2024 - 21:00"
+  },
+  {
+    "id": "bc25381b-2361-4408-9648-639339516217",
     "venue": "Kulturni Dom",
     "location": "Gorizia",
     "city": "",
     "date": "12 aprile 2024",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.9354,
-      "lng": 13.6218,
-      "display_name": "Kulturni Dom, Gorizia, Friuli-Venezia Giulia, Italia"
+      "lat": 45.9480558,
+      "lng": 13.6233718,
+      "display_name": "Kulturni dom, Via del Seminario, Carinthia / Gorišček, Borgo Castello, Gorizia, Friuli-Venezia Giulia, 34170, Italia"
     },
     "popupText": "<strong>Kulturni Dom</strong><br>Gorizia<br>12 aprile 2024 - 21:00"
   },
   {
-    "id": "example3",
-    "venue": "Al Posto Giusto",
-    "location": "Trieste", 
+    "id": "f1bb2323-9baf-4750-93dc-9314b7a680cf",
+    "venue": "La Bettola",
+    "location": "Camporosso",
     "city": "",
-    "date": "29 giugno 2024",
+    "date": "25 febbraio 2024",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.6495,
-      "lng": 13.7768,
-      "display_name": "Al Posto Giusto, Trieste, Friuli-Venezia Giulia, Italia"
+      "lat": 46.5104585,
+      "lng": 13.5480498,
+      "display_name": "La Bettola, Via Sella, Camporosso / Saifnitz / Žabnice / Cjamparos, Tarvisio / Tarvis / Trbiž, Udine, Friuli-Venezia Giulia, 33018, Italia"
     },
-    "popupText": "<strong>Al Posto Giusto</strong><br>Trieste<br>29 giugno 2024 - 21:00"
+    "popupText": "<strong>La Bettola</strong><br>Camporosso<br>25 febbraio 2024 - 21:00"
   }
 ]
