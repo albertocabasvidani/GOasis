@@ -2,6 +2,8 @@
 
 Sito web ufficiale della tribute band GOasis, dedicata alla leggendaria band britannica Oasis.
 
+🎸 Live Music | 🎤 Tribute Shows | 🇬🇧 Britpop
+
 ## Descrizione
 
 Questo sito web presenta la tribute band GOasis, con informazioni sulla band, concerti, gallery e contatti.
