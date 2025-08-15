@@ -67,7 +67,7 @@ nav {
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23666" width="1200" height="600"/></svg>');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,15 +76,15 @@ nav {
 }
 
 .hero-content h2 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 0.8rem;
     color: #ff6b35;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
 .hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
 }
 
 .tagline {
@@ -95,7 +95,7 @@ nav {
 
 /* Sections */
 section {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .band-section {
@@ -106,15 +106,15 @@ section {
 .concerts-section h2,
 .gallery-section h2,
 .contact-section h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: #333;
 }
 
 .band-section p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
     max-width: 800px;
     margin-left: auto;
@@ -123,17 +123,17 @@ section {
 
 .band-members {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .member {
     background: #f8f8f8;
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 1.5rem;
+    border-radius: 8px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
 
@@ -155,55 +155,71 @@ section {
 .concert-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    max-width: 600px;
+    gap: 1rem;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .concert-item {
     display: flex;
     background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .date {
     background: #ff6b35;
     color: white;
-    padding: 1rem;
-    border-radius: 10px;
+    padding: 0.8rem;
+    border-radius: 8px;
     text-align: center;
-    min-width: 80px;
+    min-width: 70px;
 }
 
 .date .day {
     display: block;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
 .date .month {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .details h3 {
     color: #333;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
 }
 
 .details p {
     color: #666;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+}
+
+.details .location {
+    color: #ff6b35;
+    font-weight: 500;
+}
+
+.details .city {
+    color: #888;
+}
+
+.details .time {
+    color: #333;
+    font-weight: 500;
 }
 
 .details .notes {
     font-style: italic;
     color: #888;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
 }
 
 .loading {

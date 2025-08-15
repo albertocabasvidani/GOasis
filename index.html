@@ -144,9 +144,10 @@
                             <span class="month">${concert.month}</span>
                         </div>
                         <div class="details">
-                            <h3>${concert.venue}${concert.city ? ' - ' + concert.city : ''}</h3>
-                            ${concert.address ? `<p>${concert.address}</p>` : ''}
-                            <p>Ore ${concert.time}</p>
+                            <h3>${concert.venue}</h3>
+                            ${concert.location ? `<p class="location">${concert.location}</p>` : ''}
+                            ${concert.city ? `<p class="city">${concert.city}</p>` : ''}
+                            <p class="time">Ore ${concert.time}</p>
                             ${concert.notes ? `<p class="notes">${concert.notes}</p>` : ''}
                         </div>
                     </div>
