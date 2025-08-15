@@ -235,7 +235,10 @@
                 
             } catch (error) {
                 console.error('Errore caricamento mappa:', error);
-                mapLoading.innerHTML = 'Mappa non disponibile al momento';
+                mapLoading.innerHTML = 'Mappa in aggiornamento... Torna presto per vedere tutti i luoghi dove abbiamo suonato!';
+                
+                // Nascondi il contenitore mappa se c'è un errore
+                mapContainer.style.display = 'none';
             }
         }
         

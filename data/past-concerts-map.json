@@ -1,0 +1,44 @@
+[
+  {
+    "id": "example1",
+    "venue": "La Bettola",
+    "location": "Udine",
+    "city": "",
+    "date": "25 febbraio 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.0569,
+      "lng": 13.2375,
+      "display_name": "La Bettola, Udine, Friuli-Venezia Giulia, Italia"
+    },
+    "popupText": "<strong>La Bettola</strong><br>Udine<br>25 febbraio 2024 - 21:00"
+  },
+  {
+    "id": "example2", 
+    "venue": "Kulturni Dom",
+    "location": "Gorizia",
+    "city": "",
+    "date": "12 aprile 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.9354,
+      "lng": 13.6218,
+      "display_name": "Kulturni Dom, Gorizia, Friuli-Venezia Giulia, Italia"
+    },
+    "popupText": "<strong>Kulturni Dom</strong><br>Gorizia<br>12 aprile 2024 - 21:00"
+  },
+  {
+    "id": "example3",
+    "venue": "Al Posto Giusto",
+    "location": "Trieste", 
+    "city": "",
+    "date": "29 giugno 2024",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.6495,
+      "lng": 13.7768,
+      "display_name": "Al Posto Giusto, Trieste, Friuli-Venezia Giulia, Italia"
+    },
+    "popupText": "<strong>Al Posto Giusto</strong><br>Trieste<br>29 giugno 2024 - 21:00"
+  }
+]
