@@ -15,6 +15,8 @@ async function fetchConcerts() {
     
     // Query del database Notion - solo concerti futuri (da oggi in poi)
     const today = new Date().toISOString().split('T')[0];
+    console.log(`Today is: ${today}`);
+    
     const response = await notion.databases.query({
       database_id: databaseId,
       filter: {
@@ -32,6 +34,12 @@ async function fetchConcerts() {
     });
 
     console.log(`Found ${response.results.length} upcoming concerts`);
+    
+    // Log delle date per debug
+    response.results.forEach((page, index) => {
+      const dateProperty = page.properties.Data?.date;
+      console.log(`Concert ${index + 1}: ${page.properties.Locale?.title?.[0]?.plain_text} - Date: ${JSON.stringify(dateProperty)}`);
+    });
     
     // Processa i risultati
     const concerts = response.results.map(page => {
