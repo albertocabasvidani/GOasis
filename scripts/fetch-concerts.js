@@ -11,7 +11,7 @@ const databaseId = process.env.NOTION_DATABASE_ID;
 
 async function fetchConcerts() {
   try {
-    console.log('Fetching concerts from Notion database (test run)...');
+    console.log('Fetching concerts from Notion database with correct ID...');
     
     // Query del database Notion (senza filtro data per test)
     const response = await notion.databases.query({
