@@ -123,7 +123,7 @@
             const concertList = document.getElementById('concert-list');
             
             try {
-                const response = await fetch('data/concerts.json');
+                const response = await fetch(`data/concerts.json?v=${Date.now()}`);
                 
                 if (!response.ok) {
                     throw new Error('File concerti non trovato');
