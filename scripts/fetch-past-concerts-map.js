@@ -12,51 +12,112 @@ const databaseId = process.env.NOTION_DATABASE_ID;
 // Delay function per evitare rate limiting
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Funzione per geocoding usando Nominatim (OpenStreetMap)
+// Funzione per geocoding con strategie multiple
 async function geocodeVenue(venue, location, city) {
-  try {
-    // Costruisci query di ricerca
-    const searchTerms = [venue, location, city].filter(Boolean);
-    const query = searchTerms.join(', ') + ', Italia';
+  const strategies = [
+    // Strategia 1: Query completa
+    () => {
+      const searchTerms = [venue, location, city].filter(Boolean);
+      return searchTerms.join(', ') + ', Italia';
+    },
     
-    console.log(`Geocoding: ${query}`);
+    // Strategia 2: Solo venue e location
+    () => {
+      const searchTerms = [venue, location].filter(Boolean);
+      return searchTerms.join(', ') + ', Friuli-Venezia Giulia, Italia';
+    },
     
-    // Chiama API Nominatim
-    const encodedQuery = encodeURIComponent(query);
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodedQuery}&limit=1&countrycodes=it`;
+    // Strategia 3: Solo location (città)
+    () => {
+      return location ? `${location}, Friuli-Venezia Giulia, Italia` : null;
+    },
     
-    const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'GOasis-Concert-Map/1.0 (albertocabasvidani@gmail.com)'
+    // Strategia 4: Solo venue generico
+    () => {
+      return venue ? `${venue}, Friuli-Venezia Giulia, Italia` : null;
+    },
+    
+    // Strategia 5: Ricerca con termini alternativi (bar, pub, ristorante)
+    () => {
+      if (location) {
+        return `bar pub ristorante locale ${venue}, ${location}, Italia`;
       }
-    });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const data = await response.json();
-    
-    if (data && data.length > 0) {
-      const result = data[0];
-      return {
-        lat: parseFloat(result.lat),
-        lng: parseFloat(result.lon),
-        display_name: result.display_name
-      };
-    } else {
-      console.warn(`No results found for: ${query}`);
       return null;
     }
-  } catch (error) {
-    console.error(`Geocoding error for ${venue}:`, error);
-    return null;
+  ];
+  
+  for (let i = 0; i < strategies.length; i++) {
+    const query = strategies[i]();
+    if (!query) continue;
+    
+    console.log(`Geocoding attempt ${i + 1}/5: ${query}`);
+    
+    try {
+      const result = await geocodeWithNominatim(query);
+      if (result) {
+        console.log(`✓ Success with strategy ${i + 1}`);
+        return result;
+      }
+    } catch (error) {
+      console.log(`✗ Strategy ${i + 1} failed:`, error.message);
+    }
+    
+    // Pausa tra tentativi
+    await delay(500);
   }
+  
+  console.warn(`All geocoding strategies failed for: ${venue} - ${location}`);
+  return null;
+}
+
+// Funzione base per chiamata Nominatim
+async function geocodeWithNominatim(query) {
+  const encodedQuery = encodeURIComponent(query);
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodedQuery}&limit=3&countrycodes=it&addressdetails=1`;
+  
+  const response = await fetch(url, {
+    headers: {
+      'User-Agent': 'GOasis-Concert-Map/1.0 (albertocabasvidani@gmail.com)'
+    }
+  });
+  
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  
+  const data = await response.json();
+  
+  if (data && data.length > 0) {
+    // Preferisci risultati con classe 'amenity' (bar, ristoranti, etc.)
+    const bestResult = data.find(r => r.class === 'amenity') || data[0];
+    
+    return {
+      lat: parseFloat(bestResult.lat),
+      lng: parseFloat(bestResult.lon),
+      display_name: bestResult.display_name,
+      type: bestResult.type || 'unknown',
+      confidence: data.length > 1 ? 'multiple_results' : 'single_result'
+    };
+  }
+  
+  return null;
 }
 
 async function fetchPastConcertsForMap() {
   try {
     console.log('Fetching past concerts for map from Notion...');
+    
+    // Carica coordinate manuali se disponibili
+    let manualCoordinates = {};
+    let venueAliases = {};
+    try {
+      const manualData = JSON.parse(await fs.readFile(path.join(__dirname, '..', 'data', 'manual-coordinates.json'), 'utf8'));
+      manualCoordinates = manualData.manual_venues?.venues || {};
+      venueAliases = manualData.venue_aliases?.aliases || {};
+      console.log(`Loaded ${Object.keys(manualCoordinates).length} manual coordinates and ${Object.keys(venueAliases).length} venue aliases`);
+    } catch (error) {
+      console.log('No manual coordinates file found, using geocoding only');
+    }
     
     // Query del database Notion - solo concerti passati
     const today = new Date().toISOString().split('T')[0];
@@ -115,7 +176,18 @@ async function fetchPastConcertsForMap() {
     for (let i = 0; i < concerts.length; i++) {
       const concert = concerts[i];
       
-      // Usa coordinate esistenti se disponibili
+      // 1. Prova coordinate manuali prima di tutto
+      const manualKey = concert.locale.toLowerCase();
+      if (manualCoordinates[manualKey]) {
+        console.log(`Using manual coordinates for ${concert.locale}`);
+        concertsWithCoordinates.push({
+          ...concert,
+          coordinates: manualCoordinates[manualKey]
+        });
+        continue;
+      }
+      
+      // 2. Usa coordinate esistenti se disponibili
       if (existingData[concert.id]) {
         console.log(`Using existing coordinates for ${concert.locale}`);
         concertsWithCoordinates.push({
@@ -125,18 +197,28 @@ async function fetchPastConcertsForMap() {
         continue;
       }
       
-      // Geocoding per nuovi concerti
+      // 3. Geocoding per nuovi concerti con strategie multiple
       if (concert.locale) {
-        const coordinates = await geocodeVenue(concert.locale, concert.luogo, concert.citta);
+        // Controlla alias per nomi alternativi
+        let searchVenue = concert.locale;
+        for (const [mainName, aliases] of Object.entries(venueAliases)) {
+          if (aliases.includes(concert.locale)) {
+            searchVenue = mainName;
+            console.log(`Using alias: ${concert.locale} -> ${mainName}`);
+            break;
+          }
+        }
+        
+        const coordinates = await geocodeVenue(searchVenue, concert.luogo, concert.citta);
         
         if (coordinates) {
           concertsWithCoordinates.push({
             ...concert,
             coordinates: coordinates
           });
-          console.log(`✓ Geocoded ${concert.locale}: ${coordinates.lat}, ${coordinates.lng}`);
+          console.log(`✓ Geocoded ${concert.locale}: ${coordinates.lat}, ${coordinates.lng} (${coordinates.confidence})`);
         } else {
-          console.log(`✗ Failed to geocode ${concert.locale}`);
+          console.log(`✗ Failed to geocode ${concert.locale} - consider adding manual coordinates`);
           concertsWithCoordinates.push({
             ...concert,
             coordinates: null

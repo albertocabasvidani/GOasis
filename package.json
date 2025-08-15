@@ -4,7 +4,8 @@
   "description": "Sito web GOasis Tribute Band",
   "scripts": {
     "fetch-concerts": "node scripts/fetch-concerts.js",
-    "fetch-map": "node scripts/fetch-past-concerts-map.js"
+    "fetch-map": "node scripts/fetch-past-concerts-map.js",
+    "add-coordinates": "node scripts/add-manual-coordinates.js"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14"

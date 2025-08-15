@@ -1,0 +1,21 @@
+{
+  "manual_venues": {
+    "comment": "Coordinate manuali per locali difficili da geocodificare automaticamente",
+    "venues": {
+      "esempio_locale": {
+        "lat": 46.0569,
+        "lng": 13.2375,
+        "display_name": "Esempio Locale, Udine, Italia",
+        "notes": "Coordinate inserite manualmente"
+      }
+    }
+  },
+  "venue_aliases": {
+    "comment": "Alias per nomi locali che potrebbero avere grafie diverse",
+    "aliases": {
+      "All'Invidia": ["Allinvidia", "All Invidia", "All'invidia"],
+      "Plan di Paluz": ["Plan de Paluz", "Plandipalu"],
+      "4pr": ["4PR", "Quattro PR", "Quattro P.R."]
+    }
+  }
+}
