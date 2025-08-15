@@ -13,26 +13,30 @@ async function fetchConcerts() {
   try {
     console.log('Fetching concerts from Notion database...');
     
-    // Query del database Notion
+    // Query del database Notion (senza filtro data per test)
     const response = await notion.databases.query({
       database_id: databaseId,
-      filter: {
-        property: 'Data',
-        date: {
-          on_or_after: new Date().toISOString().split('T')[0],
-        },
-      },
       sorts: [
         {
           property: 'Data',
           direction: 'ascending',
         },
       ],
+      page_size: 10,
     });
 
+    console.log(`Found ${response.results.length} results from Notion`);
+    
+    // Debug: log delle proprietà del primo risultato
+    if (response.results.length > 0) {
+      console.log('Properties of first result:', Object.keys(response.results[0].properties));
+      console.log('First result properties:', JSON.stringify(response.results[0].properties, null, 2));
+    }
+    
     // Processa i risultati
     const concerts = response.results.map(page => {
       const properties = page.properties;
+      console.log(`Processing concert: ${properties.Locale?.title?.[0]?.plain_text || 'No title'}`);
       
       return {
         id: page.id,
