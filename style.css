@@ -254,12 +254,25 @@ section {
 }
 
 .concert-map > div {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     border-radius: 10px;
+}
+
+/* Forza le dimensioni per Leaflet */
+.concert-map .leaflet-container {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Debug: assicura che il rapporto 4:3 sia visibile */
+@media (min-width: 768px) {
+    .concert-map {
+        border: 2px solid #ff6b35; /* Bordo temporaneo per vedere le dimensioni */
+    }
 }
 
 .map-loading {
