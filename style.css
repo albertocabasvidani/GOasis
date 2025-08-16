@@ -249,6 +249,8 @@ section {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     display: none; /* Nascosto fino al caricamento */
+    max-width: 67%; /* Riduce del 33% su schermi grandi */
+    margin: 0 auto; /* Centra la mappa */
 }
 
 .concert-map > div {
