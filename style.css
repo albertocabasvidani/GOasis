@@ -244,7 +244,7 @@ section {
 .concert-map {
     height: 0;
     width: 100%;
-    padding-bottom: 99.87%; /* Crea un rapporto 774:773 (larghezza:altezza) */
+    padding-bottom: 66.67%; /* Crea un rapporto 3:2 (larghezza:altezza) */
     position: relative;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
