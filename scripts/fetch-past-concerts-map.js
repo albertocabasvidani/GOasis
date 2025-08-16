@@ -12,7 +12,7 @@ const databaseId = process.env.NOTION_DATABASE_ID;
 // Delay function per evitare rate limiting
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Funzione per geocoding con Google Places API
+// Funzione per geocoding con Google Places API - LOCALITÀ FIRST
 async function geocodeWithGooglePlaces(venue, location, city) {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   
@@ -21,20 +21,19 @@ async function geocodeWithGooglePlaces(venue, location, city) {
     return null;
   }
   
+  if (!location) {
+    console.log('No location specified, cannot geocode without it');
+    return null;
+  }
+  
   try {
-    // Costruisci query per Google Places - location è più importante del venue
-    let query = '';
+    // SEMPRE location prima - è la cosa più importante
+    const veneteLocations = ['Caorle', 'Jesolo', 'Bibione', 'Lignano', 'Venezia', 'Padova'];
+    const isVeneto = veneteLocations.some(c => location.includes(c));
+    const region = isVeneto ? 'Veneto' : 'Friuli-Venezia Giulia';
     
-    // Casi speciali per città note sul mare (Veneto)
-    const coastalCities = ['Caorle', 'Jesolo', 'Bibione', 'Lignano'];
-    if (coastalCities.some(c => location?.includes(c))) {
-      // Per città costiere, usa prima la città, poi il locale
-      query = `${location}, Veneto, Italia, ${venue}`;
-    } else {
-      // Per altri casi, metti location prima per priorità geografica
-      const searchTerms = [venue, location, city].filter(Boolean);
-      query = searchTerms.join(', ') + ', Italia';
-    }
+    // Query: prima trova la città, poi cerca il locale in quella zona
+    const query = `${venue} ${location} ${region} Italia`;
     
     const encodedQuery = encodeURIComponent(query);
     const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodedQuery}&key=${apiKey}&region=it&language=it`;
@@ -45,39 +44,52 @@ async function geocodeWithGooglePlaces(venue, location, city) {
     const data = await response.json();
     
     if (data.status === 'OK' && data.results && data.results.length > 0) {
-      // Preferisci risultati che sono bar, ristoranti, locali notturni
-      const venueTypes = ['bar', 'restaurant', 'night_club', 'establishment', 'food', 'point_of_interest'];
+      // CRITICO: verifica che il risultato sia DAVVERO nella località giusta
+      const validResults = data.results.filter(r => {
+        const addr = r.formatted_address?.toLowerCase() || '';
+        return addr.includes(location.toLowerCase());
+      });
       
-      // Filtra risultati per verificare che siano nella location corretta
-      let bestResult = data.results[0];
-      
-      // Se abbiamo una location, verifica che il risultato sia nella città giusta
-      if (location) {
-        const locationMatch = data.results.find(r => 
-          r.formatted_address && r.formatted_address.toLowerCase().includes(location.toLowerCase())
+      if (validResults.length === 0) {
+        console.log(`No results in correct location ${location}, falling back to location-only search`);
+        // Se non trova nulla nella località giusta, cerca solo la località
+        const locationOnlyQuery = `${location} ${region} Italia`;
+        const locationResponse = await fetch(
+          `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(locationOnlyQuery)}&key=${apiKey}&region=it&language=it`
         );
+        const locationData = await locationResponse.json();
         
-        if (locationMatch) {
-          bestResult = locationMatch;
-        } else {
-          // Se nessun match esatto, preferisci locali commerciali
-          bestResult = data.results.find(r => 
-            r.types && r.types.some(type => venueTypes.includes(type))
-          ) || data.results[0];
+        if (locationData.status === 'OK' && locationData.results?.length > 0) {
+          const result = locationData.results[0];
+          return {
+            lat: result.geometry.location.lat,
+            lng: result.geometry.location.lng,
+            display_name: `${location}, ${region}, Italia (località approssimativa)`,
+            type: 'locality',
+            confidence: 'location_only',
+            place_id: result.place_id
+          };
         }
+        return null;
       }
+      
+      // Preferisci locali commerciali se disponibili
+      const venueTypes = ['bar', 'restaurant', 'night_club', 'establishment', 'food'];
+      const bestResult = validResults.find(r => 
+        r.types?.some(type => venueTypes.includes(type))
+      ) || validResults[0];
       
       return {
         lat: bestResult.geometry.location.lat,
         lng: bestResult.geometry.location.lng,
         display_name: bestResult.formatted_address,
         type: bestResult.types?.[0] || 'establishment',
-        confidence: 'google_places',
+        confidence: 'google_places_verified',
         place_id: bestResult.place_id,
         rating: bestResult.rating || null
       };
     } else {
-      console.log(`Google Places: ${data.status} - ${data.error_message || 'No results'}`);
+      console.log(`Google Places: ${data.status} - trying location only`);
       return null;
     }
   } catch (error) {
@@ -264,7 +276,7 @@ async function fetchPastConcertsForMap() {
         // Lista di concerti con coordinate sbagliate da ri-geocodificare
         const wrongLocations = [
           'Verde Mare Club', // Era a Pordenone invece di Caorle
-          'Live Drink' // Potrebbe essere a Jesolo sbagliata
+          'Live Drink' // Era a Grado invece di Jesolo
         ];
         
         // Se il concerto è nella lista di quelli sbagliati, ri-geocodifica
@@ -321,7 +333,7 @@ async function fetchPastConcertsForMap() {
           date: formattedDate,
           time: concert.ora,
           coordinates: concert.coordinates,
-          popupText: `<strong>${concert.locale}</strong><br>${concert.luogo ? concert.luogo + '<br>' : ''}${formattedDate} - ${concert.ora}`
+          popupText: `<strong>${concert.locale}</strong><br>${concert.luogo ? concert.luogo + '<br>' : ''}${formattedDate}`
         };
       });
 
