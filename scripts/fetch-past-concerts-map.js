@@ -22,9 +22,19 @@ async function geocodeWithGooglePlaces(venue, location, city) {
   }
   
   try {
-    // Costruisci query per Google Places
-    const searchTerms = [venue, location, city].filter(Boolean);
-    const query = searchTerms.join(', ') + ', Italia';
+    // Costruisci query per Google Places - location è più importante del venue
+    let query = '';
+    
+    // Casi speciali per città note sul mare (Veneto)
+    const coastalCities = ['Caorle', 'Jesolo', 'Bibione', 'Lignano'];
+    if (coastalCities.some(c => location?.includes(c))) {
+      // Per città costiere, usa prima la città, poi il locale
+      query = `${location}, Veneto, Italia, ${venue}`;
+    } else {
+      // Per altri casi, metti location prima per priorità geografica
+      const searchTerms = [venue, location, city].filter(Boolean);
+      query = searchTerms.join(', ') + ', Italia';
+    }
     
     const encodedQuery = encodeURIComponent(query);
     const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodedQuery}&key=${apiKey}&region=it&language=it`;
@@ -35,22 +45,36 @@ async function geocodeWithGooglePlaces(venue, location, city) {
     const data = await response.json();
     
     if (data.status === 'OK' && data.results && data.results.length > 0) {
-      const result = data.results[0];
-      
       // Preferisci risultati che sono bar, ristoranti, locali notturni
       const venueTypes = ['bar', 'restaurant', 'night_club', 'establishment', 'food', 'point_of_interest'];
-      const preferredResult = data.results.find(r => 
-        r.types && r.types.some(type => venueTypes.includes(type))
-      ) || result;
+      
+      // Filtra risultati per verificare che siano nella location corretta
+      let bestResult = data.results[0];
+      
+      // Se abbiamo una location, verifica che il risultato sia nella città giusta
+      if (location) {
+        const locationMatch = data.results.find(r => 
+          r.formatted_address && r.formatted_address.toLowerCase().includes(location.toLowerCase())
+        );
+        
+        if (locationMatch) {
+          bestResult = locationMatch;
+        } else {
+          // Se nessun match esatto, preferisci locali commerciali
+          bestResult = data.results.find(r => 
+            r.types && r.types.some(type => venueTypes.includes(type))
+          ) || data.results[0];
+        }
+      }
       
       return {
-        lat: preferredResult.geometry.location.lat,
-        lng: preferredResult.geometry.location.lng,
-        display_name: preferredResult.formatted_address,
-        type: preferredResult.types?.[0] || 'establishment',
+        lat: bestResult.geometry.location.lat,
+        lng: bestResult.geometry.location.lng,
+        display_name: bestResult.formatted_address,
+        type: bestResult.types?.[0] || 'establishment',
         confidence: 'google_places',
-        place_id: preferredResult.place_id,
-        rating: preferredResult.rating || null
+        place_id: bestResult.place_id,
+        rating: bestResult.rating || null
       };
     } else {
       console.log(`Google Places: ${data.status} - ${data.error_message || 'No results'}`);
@@ -75,30 +99,43 @@ async function geocodeVenue(venue, location, city) {
   // Fallback su Nominatim con strategie multiple
   console.log(`Google Places failed, trying Nominatim fallback...`);
   
+  // Città fuori dal Friuli che ospitano concerti
+  const veneteLocations = ['Caorle', 'Jesolo', 'Bibione', 'Lignano', 'Venezia', 'Padova'];
+  const isVeneto = location && veneteLocations.some(c => location.includes(c));
+  const region = isVeneto ? 'Veneto' : 'Friuli-Venezia Giulia';
+  
   const strategies = [
-    // Strategia 1: Query completa
+    // Strategia 1: Location prima per evitare ambiguità geografiche
+    () => {
+      if (location) {
+        return `${location}, ${region}, Italia, ${venue}`;
+      }
+      return null;
+    },
+    
+    // Strategia 2: Query completa tradizionale
     () => {
       const searchTerms = [venue, location, city].filter(Boolean);
       return searchTerms.join(', ') + ', Italia';
     },
     
-    // Strategia 2: Solo venue e location
+    // Strategia 3: Solo venue e location con regione
     () => {
       const searchTerms = [venue, location].filter(Boolean);
-      return searchTerms.join(', ') + ', Friuli-Venezia Giulia, Italia';
+      return searchTerms.join(', ') + `, ${region}, Italia`;
     },
     
-    // Strategia 3: Ricerca con termini alternativi
+    // Strategia 4: Ricerca con termini alternativi
     () => {
       if (location) {
-        return `bar pub ristorante locale ${venue}, ${location}, Italia`;
+        return `bar pub ristorante locale ${venue}, ${location}, ${region}, Italia`;
       }
       return null;
     },
     
-    // Strategia 4: Solo location (città)  
+    // Strategia 5: Solo location (città) come fallback finale
     () => {
-      return location ? `${location}, Friuli-Venezia Giulia, Italia` : null;
+      return location ? `${location}, ${region}, Italia` : null;
     }
   ];
   
@@ -222,14 +259,25 @@ async function fetchPastConcertsForMap() {
     for (let i = 0; i < concerts.length; i++) {
       const concert = concerts[i];
       
-      // 1. Usa coordinate esistenti dalla cache se disponibili
+      // 1. Usa coordinate esistenti dalla cache se disponibili (ma verifica accuratezza)
       if (existingData[concert.id]) {
-        console.log(`Using cached coordinates for ${concert.locale}`);
-        concertsWithCoordinates.push({
-          ...concert,
-          coordinates: existingData[concert.id]
-        });
-        continue;
+        // Lista di concerti con coordinate sbagliate da ri-geocodificare
+        const wrongLocations = [
+          'Verde Mare Club', // Era a Pordenone invece di Caorle
+          'Live Drink' // Potrebbe essere a Jesolo sbagliata
+        ];
+        
+        // Se il concerto è nella lista di quelli sbagliati, ri-geocodifica
+        if (wrongLocations.some(name => concert.locale.includes(name))) {
+          console.log(`Re-geocoding ${concert.locale} due to known incorrect location`);
+        } else {
+          console.log(`Using cached coordinates for ${concert.locale}`);
+          concertsWithCoordinates.push({
+            ...concert,
+            coordinates: existingData[concert.id]
+          });
+          continue;
+        }
       }
       
       // 2. Geocoding automatico con Google Places + Nominatim fallback
