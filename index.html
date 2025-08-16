@@ -251,10 +251,6 @@
                     map.fitBounds(group.getBounds().pad(0.1));
                 }
                 
-                // Forza il ridimensionamento della mappa per rispettare il CSS
-                setTimeout(() => {
-                    map.invalidateSize();
-                }, 100);
                 
                 console.log(`Loaded map with ${concerts.length} past concerts`);
                 

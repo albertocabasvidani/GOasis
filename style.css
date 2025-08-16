@@ -242,38 +242,13 @@ section {
 }
 
 .concert-map {
-    height: 0;
+    height: 400px;
     width: 100%;
-    padding-bottom: 66.67%; /* Crea un rapporto 3:2 (larghezza:altezza) */
-    position: relative;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     display: none; /* Nascosto fino al caricamento */
-    max-width: 67%; /* Riduce del 33% su schermi grandi */
-    margin: 0 auto; /* Centra la mappa */
 }
 
-.concert-map > div {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 10px;
-}
-
-/* Forza le dimensioni per Leaflet */
-.concert-map .leaflet-container {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* Debug: assicura che il rapporto 4:3 sia visibile */
-@media (min-width: 768px) {
-    .concert-map {
-        border: 2px solid #ff6b35; /* Bordo temporaneo per vedere le dimensioni */
-    }
-}
 
 .map-loading {
     text-align: center;
