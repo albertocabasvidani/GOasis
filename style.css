@@ -18,6 +18,50 @@ body {
     padding: 0 20px;
 }
 
+/* Band Members Photos */
+.band-photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.band-member-photo {
+    text-align: center;
+}
+
+.photo-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ff6b35;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    margin-bottom: 1rem;
+}
+
+.photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.band-member-photo h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+}
+
+.band-member-photo p {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
 /* Header */
 header {
     background: rgba(26, 26, 26, 0.95);
