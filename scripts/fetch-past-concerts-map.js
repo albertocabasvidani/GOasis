@@ -12,8 +12,69 @@ const databaseId = process.env.NOTION_DATABASE_ID;
 // Delay function per evitare rate limiting
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Funzione per geocoding con strategie multiple
+// Funzione per geocoding con Google Places API
+async function geocodeWithGooglePlaces(venue, location, city) {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  
+  if (!apiKey) {
+    console.log('Google Places API key not available, skipping...');
+    return null;
+  }
+  
+  try {
+    // Costruisci query per Google Places
+    const searchTerms = [venue, location, city].filter(Boolean);
+    const query = searchTerms.join(', ') + ', Italia';
+    
+    const encodedQuery = encodeURIComponent(query);
+    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodedQuery}&key=${apiKey}&region=it&language=it`;
+    
+    console.log(`Google Places search: ${query}`);
+    
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    if (data.status === 'OK' && data.results && data.results.length > 0) {
+      const result = data.results[0];
+      
+      // Preferisci risultati che sono bar, ristoranti, locali notturni
+      const venueTypes = ['bar', 'restaurant', 'night_club', 'establishment', 'food', 'point_of_interest'];
+      const preferredResult = data.results.find(r => 
+        r.types && r.types.some(type => venueTypes.includes(type))
+      ) || result;
+      
+      return {
+        lat: preferredResult.geometry.location.lat,
+        lng: preferredResult.geometry.location.lng,
+        display_name: preferredResult.formatted_address,
+        type: preferredResult.types?.[0] || 'establishment',
+        confidence: 'google_places',
+        place_id: preferredResult.place_id,
+        rating: preferredResult.rating || null
+      };
+    } else {
+      console.log(`Google Places: ${data.status} - ${data.error_message || 'No results'}`);
+      return null;
+    }
+  } catch (error) {
+    console.error('Google Places error:', error.message);
+    return null;
+  }
+}
+
+// Funzione per geocoding con strategie multiple + Google Places
 async function geocodeVenue(venue, location, city) {
+  // Prova prima Google Places (più accurato per locali commerciali)
+  console.log(`Trying Google Places for: ${venue}`);
+  const googleResult = await geocodeWithGooglePlaces(venue, location, city);
+  if (googleResult) {
+    console.log(`✓ Google Places success: ${googleResult.lat}, ${googleResult.lng}`);
+    return googleResult;
+  }
+  
+  // Fallback su Nominatim con strategie multiple
+  console.log(`Google Places failed, trying Nominatim fallback...`);
+  
   const strategies = [
     // Strategia 1: Query completa
     () => {
@@ -27,22 +88,17 @@ async function geocodeVenue(venue, location, city) {
       return searchTerms.join(', ') + ', Friuli-Venezia Giulia, Italia';
     },
     
-    // Strategia 3: Solo location (città)
-    () => {
-      return location ? `${location}, Friuli-Venezia Giulia, Italia` : null;
-    },
-    
-    // Strategia 4: Solo venue generico
-    () => {
-      return venue ? `${venue}, Friuli-Venezia Giulia, Italia` : null;
-    },
-    
-    // Strategia 5: Ricerca con termini alternativi (bar, pub, ristorante)
+    // Strategia 3: Ricerca con termini alternativi
     () => {
       if (location) {
         return `bar pub ristorante locale ${venue}, ${location}, Italia`;
       }
       return null;
+    },
+    
+    // Strategia 4: Solo location (città)  
+    () => {
+      return location ? `${location}, Friuli-Venezia Giulia, Italia` : null;
     }
   ];
   
@@ -50,16 +106,16 @@ async function geocodeVenue(venue, location, city) {
     const query = strategies[i]();
     if (!query) continue;
     
-    console.log(`Geocoding attempt ${i + 1}/5: ${query}`);
+    console.log(`Nominatim attempt ${i + 1}/4: ${query}`);
     
     try {
       const result = await geocodeWithNominatim(query);
       if (result) {
-        console.log(`✓ Success with strategy ${i + 1}`);
+        console.log(`✓ Nominatim success with strategy ${i + 1}`);
         return result;
       }
     } catch (error) {
-      console.log(`✗ Strategy ${i + 1} failed:`, error.message);
+      console.log(`✗ Nominatim strategy ${i + 1} failed:`, error.message);
     }
     
     // Pausa tra tentativi
@@ -107,17 +163,7 @@ async function fetchPastConcertsForMap() {
   try {
     console.log('Fetching past concerts for map from Notion...');
     
-    // Carica coordinate manuali se disponibili
-    let manualCoordinates = {};
-    let venueAliases = {};
-    try {
-      const manualData = JSON.parse(await fs.readFile(path.join(__dirname, '..', 'data', 'manual-coordinates.json'), 'utf8'));
-      manualCoordinates = manualData.manual_venues?.venues || {};
-      venueAliases = manualData.venue_aliases?.aliases || {};
-      console.log(`Loaded ${Object.keys(manualCoordinates).length} manual coordinates and ${Object.keys(venueAliases).length} venue aliases`);
-    } catch (error) {
-      console.log('No manual coordinates file found, using geocoding only');
-    }
+    // Sistema completamente automatico - nessun intervento manuale richiesto
     
     // Query del database Notion - solo concerti passati
     const today = new Date().toISOString().split('T')[0];
@@ -176,20 +222,9 @@ async function fetchPastConcertsForMap() {
     for (let i = 0; i < concerts.length; i++) {
       const concert = concerts[i];
       
-      // 1. Prova coordinate manuali prima di tutto
-      const manualKey = concert.locale.toLowerCase();
-      if (manualCoordinates[manualKey]) {
-        console.log(`Using manual coordinates for ${concert.locale}`);
-        concertsWithCoordinates.push({
-          ...concert,
-          coordinates: manualCoordinates[manualKey]
-        });
-        continue;
-      }
-      
-      // 2. Usa coordinate esistenti se disponibili
+      // 1. Usa coordinate esistenti dalla cache se disponibili
       if (existingData[concert.id]) {
-        console.log(`Using existing coordinates for ${concert.locale}`);
+        console.log(`Using cached coordinates for ${concert.locale}`);
         concertsWithCoordinates.push({
           ...concert,
           coordinates: existingData[concert.id]
@@ -197,36 +232,25 @@ async function fetchPastConcertsForMap() {
         continue;
       }
       
-      // 3. Geocoding per nuovi concerti con strategie multiple
+      // 2. Geocoding automatico con Google Places + Nominatim fallback
       if (concert.locale) {
-        // Controlla alias per nomi alternativi
-        let searchVenue = concert.locale;
-        for (const [mainName, aliases] of Object.entries(venueAliases)) {
-          if (aliases.includes(concert.locale)) {
-            searchVenue = mainName;
-            console.log(`Using alias: ${concert.locale} -> ${mainName}`);
-            break;
-          }
-        }
+        console.log(`Auto-geocoding: ${concert.locale} in ${concert.luogo}`);
         
-        const coordinates = await geocodeVenue(searchVenue, concert.luogo, concert.citta);
+        const coordinates = await geocodeVenue(concert.locale, concert.luogo, concert.citta);
         
         if (coordinates) {
           concertsWithCoordinates.push({
             ...concert,
             coordinates: coordinates
           });
-          console.log(`✓ Geocoded ${concert.locale}: ${coordinates.lat}, ${coordinates.lng} (${coordinates.confidence})`);
+          console.log(`✓ Successfully geocoded ${concert.locale}: ${coordinates.lat}, ${coordinates.lng} (${coordinates.confidence})`);
         } else {
-          console.log(`✗ Failed to geocode ${concert.locale} - consider adding manual coordinates`);
-          concertsWithCoordinates.push({
-            ...concert,
-            coordinates: null
-          });
+          console.log(`✗ Auto-geocoding failed for ${concert.locale} - but will keep trying different strategies`);
+          // Non aggiungiamo concerti senza coordinate - proviamo sempre a trovarle
         }
         
         // Rate limiting - pausa tra richieste
-        await delay(1000);
+        await delay(1200);
       }
     }
 
