@@ -23,11 +23,11 @@
     "date": "18 luglio 2025",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.9655685,
-      "lng": 12.657104,
-      "display_name": "Via Caorle, San Giorgio, Pordenone / Pordenon, Friuli-Venezia Giulia, 33170, Italia",
-      "type": "residential",
-      "confidence": "multiple_results"
+      "lat": 45.5979147,
+      "lng": 12.8876282,
+      "display_name": "Caorle, Venezia, Veneto, 30021, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
     },
     "popupText": "<strong>Verde Mare Club</strong><br>Caorle<br>18 luglio 2025 - 21:00"
   },
@@ -245,11 +245,11 @@
     "date": "14 dicembre 2024",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.7462447,
-      "lng": 13.4840326,
-      "display_name": "Casale Jesolo, Grado / Grau, Gorizia, Friuli-Venezia Giulia, 34073, Italia",
-      "type": "farmyard",
-      "confidence": "multiple_results"
+      "lat": 45.5367094,
+      "lng": 12.6383337,
+      "display_name": "Jesolo, Venezia, Veneto, 30016, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
     },
     "popupText": "<strong>Live Drink</strong><br>Jesolo<br>14 dicembre 2024 - 21:00"
   },
@@ -323,11 +323,11 @@
     "date": "23 agosto 2024",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.7462447,
-      "lng": 13.4840326,
-      "display_name": "Casale Jesolo, Grado / Grau, Gorizia, Friuli-Venezia Giulia, 34073, Italia",
-      "type": "farmyard",
-      "confidence": "multiple_results"
+      "lat": 45.5367094,
+      "lng": 12.6383337,
+      "display_name": "Jesolo, Venezia, Veneto, 30016, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
     },
     "popupText": "<strong>Live Drink</strong><br>Jesolo<br>23 agosto 2024 - 21:00"
   },
