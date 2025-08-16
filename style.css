@@ -242,11 +242,22 @@ section {
 }
 
 .concert-map {
-    height: 400px;
+    height: 0;
     width: 100%;
+    padding-bottom: 100%; /* Crea un rapporto 1:1 (quadrato) */
+    position: relative;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     display: none; /* Nascosto fino al caricamento */
+}
+
+.concert-map > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
 .map-loading {
