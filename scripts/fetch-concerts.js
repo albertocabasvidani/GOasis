@@ -48,27 +48,26 @@ async function fetchConcerts() {
         citta: properties.Città?.rich_text?.[0]?.plain_text || '',
         indirizzo: properties.Indirizzo?.rich_text?.[0]?.plain_text || '',
         note: properties.Note?.rich_text?.[0]?.plain_text || '',
+        aco: properties.Aco?.checkbox || false,
       };
     });
 
     // Formatta i concerti per il frontend
     const formattedConcerts = concerts.map(concert => {
       const date = new Date(concert.data);
-      const day = date.getDate();
-      const month = date.toLocaleString('it-IT', { month: 'short' }).toUpperCase();
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
       const year = date.getFullYear();
       
       return {
         day: day,
         month: month,
         year: year,
-        fullDate: concert.data,
-        time: concert.ora,
         venue: concert.locale,
         location: concert.luogo,
         city: concert.citta,
-        address: concert.indirizzo,
         notes: concert.note,
+        acoustic: concert.aco,
       };
     });
 

@@ -6,7 +6,8 @@
     "venue": "Mulin di Braida",
     "location": "Saciletto di Ruda",
     "city": "",
-    "notes": ""
+    "notes": "",
+    "acoustic": false
   },
   {
     "day": "29",
@@ -15,7 +16,8 @@
     "venue": "Eccolo",
     "location": "Turriaco",
     "city": "",
-    "notes": ""
+    "notes": "",
+    "acoustic": false
   },
   {
     "day": "30",
@@ -24,7 +26,8 @@
     "venue": "All'Invidia",
     "location": "Pavia di Udine",
     "city": "",
-    "notes": ""
+    "notes": "",
+    "acoustic": true
   },
   {
     "day": "12",
@@ -33,7 +36,8 @@
     "venue": "Novecento",
     "location": "Gradisca",
     "city": "",
-    "notes": ""
+    "notes": "",
+    "acoustic": false
   },
   {
     "day": "10",
@@ -42,6 +46,7 @@
     "venue": "Garage Music Club",
     "location": "Gradisca d'Isonzo",
     "city": "",
-    "notes": ""
+    "notes": "",
+    "acoustic": false
   }
 ]

@@ -42,7 +42,7 @@
 
         <section id="concerti" class="concerts-section">
             <div class="container">
-                <h2>Prossimi Concerti</h2>
+                <h2>I prossimi concerti</h2>
                 <div class="concert-list" id="concert-list">
                     <!-- I concerti verranno caricati dinamicamente -->
                     <div class="loading">Caricamento concerti...</div>
@@ -53,9 +53,6 @@
         <section id="band" class="band-section">
             <div class="container">
                 <h2>La Band</h2>
-                <p>I GOasis sono una tribute band dedicata alla leggendaria band britannica Oasis. 
-                   Formatisi con la passione per la musica dei fratelli Gallagher, ricreano fedelmente 
-                   l'energia e il sound iconico che ha reso famosi gli Oasis in tutto il mondo.</p>
                 
                 <div class="band-photos">
                     <div class="band-member-photo">
@@ -166,7 +163,7 @@
                             <span class="date">${concert.day}/${concert.month}/${concert.year || '2025'}</span>
                         </div>
                         <div class="details">
-                            <h3>${concert.venue}</h3>
+                            <h3>${concert.venue}${concert.acoustic ? ' (acustico)' : ''}</h3>
                             ${concert.location ? `<p class="location">${concert.location}</p>` : ''}
                             ${concert.city ? `<p class="city">${concert.city}</p>` : ''}
                             ${concert.notes ? `<p class="notes">${concert.notes}</p>` : ''}

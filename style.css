@@ -331,12 +331,15 @@ section h2 {
 .date {
     background: #b22222;
     color: white;
-    padding: 0.6rem 1rem;
+    padding: 0.8rem 1rem;
     border-radius: 6px;
     text-align: center;
     font-size: 0.95rem;
     font-weight: 600;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
 }
 
 .details h3 {
