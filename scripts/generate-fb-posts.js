@@ -6,6 +6,17 @@ async function generateFacebookPosts() {
   try {
     console.log('Reading concerts data...');
     
+    // Debug: verifica che le directory esistano
+    const imgDir = path.join(__dirname, '..', 'img');
+    console.log('Checking img directory:', imgDir);
+    
+    try {
+      const imgFiles = await fs.readdir(imgDir);
+      console.log('Files in img directory:', imgFiles);
+    } catch (error) {
+      console.error('Error reading img directory:', error);
+    }
+    
     // Leggi i concerti
     const concertsPath = path.join(__dirname, '..', 'data', 'concerts.json');
     const concertsData = await fs.readFile(concertsPath, 'utf8');
@@ -77,6 +88,17 @@ async function generateImage(concerts, outputPath, imageNumber, totalImages) {
   
   // Carica l'immagine di sfondo per Facebook 
   const backgroundPath = path.join(__dirname, '..', 'img', 'sfondoFB.png');
+  console.log('Loading background from:', backgroundPath);
+  
+  // Verifica che il file esista
+  try {
+    await fs.access(backgroundPath);
+    console.log('Background file exists');
+  } catch (error) {
+    console.error('Background file not found:', error);
+    throw error;
+  }
+  
   const backgroundImage = await loadImage(backgroundPath);
   
   // Disegna lo sfondo
@@ -102,8 +124,10 @@ async function generateImage(concerts, outputPath, imageNumber, totalImages) {
   await drawConcertsTable(ctx, concerts, width, tableStartY, availableHeight, imageNumber, totalImages);
   
   // Salva l'immagine
+  console.log('Saving image to:', outputPath);
   const buffer = canvas.toBuffer('image/png');
   await fs.writeFile(outputPath, buffer);
+  console.log('Image saved successfully:', outputPath);
 }
 
 async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHeight, imageNumber, totalImages) {
