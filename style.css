@@ -227,7 +227,7 @@ section {
     position: relative;
 }
 
-section:not(.hero) {
+section:not(.hero):not(.band-section) {
     background: #ffffff;
     margin: 0;
     border-radius: 0;
