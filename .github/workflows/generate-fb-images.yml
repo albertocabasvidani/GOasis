@@ -1,0 +1,46 @@
+name: Generate Facebook Post Images
+
+on:
+  workflow_dispatch: # Permette esecuzione manuale
+  push:
+    paths:
+      - 'data/concerts.json'
+      - 'scripts/generate-fb-posts.js'
+
+jobs:
+  generate-images:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Generate Facebook post images
+      run: npm run generate-fb-posts
+    
+    - name: Check for changes
+      id: git-check
+      run: |
+        git diff --exit-code img/fb-post-*.png || echo "changes=true" >> $GITHUB_OUTPUT
+    
+    - name: Commit and push if changed
+      if: steps.git-check.outputs.changes == 'true'
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add img/fb-post-*.png
+        git commit -m "Generate Facebook post images [skip ci]"
+        git push
