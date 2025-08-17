@@ -7,8 +7,8 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.7;
-    color: #2c3e50;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333333;
+    background: #ffffff;
     min-height: 100vh;
 }
 
@@ -37,7 +37,7 @@ body {
     height: 180px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #ff6b35;
+    border: 4px solid #b22222;
     box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     margin-bottom: 1rem;
 }
@@ -61,28 +61,26 @@ body {
 .band-member-photo h4 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: #1a1a1a;
     margin-bottom: 0.3rem;
 }
 
 .band-member-photo p {
     font-size: 0.95rem;
-    color: #7f8c8d;
+    color: #666666;
     font-weight: 500;
 }
 
 /* Header */
 header {
-    background: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(10px);
+    background: #000000;
     color: white;
     padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 nav {
@@ -114,7 +112,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: #ff6b35;
+    color: #b22222;
 }
 
 /* Hero Section */
@@ -151,11 +149,8 @@ nav {
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 900;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ff6b35, #ffd700);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     letter-spacing: -0.02em;
 }
 
@@ -168,10 +163,10 @@ nav {
 
 .hero-tagline {
     font-style: italic;
-    color: #ffd700;
+    color: #b22222;
     font-size: clamp(1rem, 2.5vw, 1.3rem);
     margin-bottom: 3rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     font-weight: 300;
 }
 
@@ -196,14 +191,15 @@ nav {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    background: #b22222;
     color: white;
-    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 4px 15px rgba(178, 34, 34, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+    background: #8b1a1a;
+    box-shadow: 0 6px 20px rgba(178, 34, 34, 0.4);
 }
 
 .btn-secondary {
@@ -226,11 +222,11 @@ section {
 }
 
 section:not(.hero) {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    margin: 2rem 0;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    background: #ffffff;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 section h2 {
@@ -238,10 +234,7 @@ section h2 {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1a1a1a;
 }
 
 .band-section {
@@ -255,7 +248,7 @@ section h2 {
     font-size: 2rem;
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #1a1a1a;
 }
 
 .band-section p {
@@ -275,11 +268,11 @@ section h2 {
 }
 
 .member {
-    background: #f8f8f8;
+    background: #f5f5f5;
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
     transition: transform 0.3s ease;
 }
 
@@ -288,14 +281,14 @@ section h2 {
 }
 
 .member h3 {
-    color: #ff6b35;
+    color: #b22222;
     margin-bottom: 1rem;
     font-size: 1.3rem;
 }
 
 /* Concerts Section */
 .concerts-section {
-    background: #f8f8f8;
+    background: #fafafa;
 }
 
 .concert-list {
@@ -317,7 +310,7 @@ section h2 {
 }
 
 .date {
-    background: #ff6b35;
+    background: #b22222;
     color: white;
     padding: 0.8rem;
     border-radius: 8px;
@@ -337,40 +330,40 @@ section h2 {
 }
 
 .details h3 {
-    color: #333;
+    color: #1a1a1a;
     margin-bottom: 0.3rem;
     font-size: 1.1rem;
 }
 
 .details p {
-    color: #666;
+    color: #666666;
     margin-bottom: 0.2rem;
     font-size: 0.9rem;
 }
 
 .details .location {
-    color: #ff6b35;
+    color: #b22222;
     font-weight: 500;
 }
 
 .details .city {
-    color: #888;
+    color: #808080;
 }
 
 .details .time {
-    color: #333;
+    color: #333333;
     font-weight: 500;
 }
 
 .details .notes {
     font-style: italic;
-    color: #888;
+    color: #808080;
     margin-top: 0.3rem;
 }
 
 .loading {
     text-align: center;
-    color: #666;
+    color: #666666;
     padding: 2rem;
     font-style: italic;
 }
@@ -382,7 +375,7 @@ section h2 {
 
 .map-section p {
     text-align: center;
-    color: #666;
+    color: #666666;
     margin-bottom: 2rem;
     font-size: 1.1rem;
 }
@@ -398,7 +391,7 @@ section h2 {
 
 .map-loading {
     text-align: center;
-    color: #666;
+    color: #666666;
     padding: 3rem;
     font-style: italic;
     font-size: 1.1rem;
@@ -411,7 +404,7 @@ section h2 {
 }
 
 .leaflet-popup-content strong {
-    color: #ff6b35;
+    color: #b22222;
     font-size: 1.1rem;
     display: block;
     margin-bottom: 5px;
@@ -443,18 +436,18 @@ section h2 {
 .placeholder-img {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #666, #999);
+    background: #e0e0e0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #808080;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
 /* Contact Section */
 .contact-section {
-    background: #f8f8f8;
+    background: #fafafa;
 }
 
 .contact-icons {
@@ -468,7 +461,7 @@ section h2 {
 .contact-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    background: #b22222;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -476,12 +469,13 @@ section h2 {
     color: white;
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 
 .contact-icon:hover {
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: #8b1a1a;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
 }
 
 .contact-icon svg {
@@ -490,14 +484,14 @@ section h2 {
 }
 
 .contact-item p {
-    color: #666;
+    color: #666666;
     font-size: 1.1rem;
 }
 
 /* Footer */
 footer {
-    background: #333;
-    color: white;
+    background: #000000;
+    color: #cccccc;
     text-align: center;
     padding: 2rem 0;
 }
