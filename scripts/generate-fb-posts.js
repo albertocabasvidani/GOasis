@@ -76,7 +76,7 @@ async function generateImage(concerts, outputPath, imageNumber, totalImages) {
   const ctx = canvas.getContext('2d');
   
   // Carica l'immagine di sfondo per Facebook
-  const backgroundPath = path.join(__dirname, '..', 'img', 'sfondoFB.jpg');
+  const backgroundPath = path.join(__dirname, '..', 'img', 'sfondoFB.png');
   const backgroundImage = await loadImage(backgroundPath);
   
   // Disegna lo sfondo
