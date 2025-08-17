@@ -7,34 +7,34 @@
     "location": "Saciletto di Ruda",
     "city": "",
     "notes": "",
-    "acoustic": false
+    "acoustic": true
   },
   {
     "day": "29",
     "month": "08",
     "year": 2025,
-    "venue": "Eccolo",
+    "venue": "Eccolo River Beer Truck",
     "location": "Turriaco",
-    "city": "",
-    "notes": "",
-    "acoustic": false
-  },
-  {
-    "day": "30",
-    "month": "08",
-    "year": 2025,
-    "venue": "All'Invidia",
-    "location": "Pavia di Udine",
     "city": "",
     "notes": "",
     "acoustic": true
   },
   {
+    "day": "30",
+    "month": "08",
+    "year": 2025,
+    "venue": "Ristorante All’Invidia",
+    "location": "Pavia di Udine",
+    "city": "",
+    "notes": "",
+    "acoustic": false
+  },
+  {
     "day": "12",
     "month": "09",
     "year": 2025,
-    "venue": "Novecento",
-    "location": "Gradisca",
+    "venue": "Pizzeria Novecento",
+    "location": "Gradisca d’Isonzo",
     "city": "",
     "notes": "",
     "acoustic": false
@@ -44,7 +44,7 @@
     "month": "10",
     "year": 2025,
     "venue": "Garage Music Club",
-    "location": "Gradisca d'Isonzo",
+    "location": "Gradisca d’Isonzo",
     "city": "",
     "notes": "",
     "acoustic": false
