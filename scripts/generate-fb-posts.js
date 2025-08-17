@@ -136,11 +136,11 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
   const textColor = '#ffffff';
   const tableBackgroundColor = 'rgba(0, 0, 0, 0.8)';
   
-  // Configurazione tabella senza header (più piccola)
+  // Configurazione tabella senza header
   const padding = 20;
   const rowHeight = Math.min(80, availableHeight / concerts.length); // Altezza massima riga
   const tableHeight = rowHeight * concerts.length;
-  const tableWidth = Math.min(600, canvasWidth - 200); // Tabella più stretta
+  const tableWidth = Math.min(800, canvasWidth - 100); // Tabella più larga
   const tableX = (canvasWidth - tableWidth) / 2;
   
   // Centra verticalmente la tabella nell'area disponibile
@@ -184,14 +184,13 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
     // Indicatore acustico su nuova riga se presente
     if (concert.acoustic) {
       ctx.font = '16px Arial';
-      ctx.fillStyle = primaryColor;
+      ctx.fillStyle = textColor; // Bianco invece di rosso
       ctx.fillText('(acustico)', tableX + 100, y + 50);
-      ctx.fillStyle = textColor;
       ctx.font = '22px Arial';
     }
     
     // Location
-    ctx.fillText(concert.location, tableX + 350, y + 25);
+    ctx.fillText(concert.location, tableX + 450, y + 25);
   });
   
   // Footer con indicatore pagina se ci sono più immagini
