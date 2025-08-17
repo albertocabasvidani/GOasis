@@ -161,17 +161,18 @@ nav {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(4rem, 10vw, 8rem);
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
     letter-spacing: 0.05em;
 }
 
 .hero-subtitle {
     font-size: clamp(1.2rem, 3vw, 1.8rem);
-    margin-bottom: 1rem;
-    opacity: 0.9;
-    font-weight: 300;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
 }
 
 
