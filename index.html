@@ -162,15 +162,13 @@
                 // Genera HTML per ogni concerto
                 const concertsHTML = concerts.map(concert => `
                     <div class="concert-item">
-                        <div class="date">
-                            <span class="day">${concert.day}</span>
-                            <span class="month">${concert.month}</span>
+                        <div class="date-info">
+                            <span class="date">${concert.day}/${concert.month}/${concert.year || '2025'}</span>
                         </div>
                         <div class="details">
                             <h3>${concert.venue}</h3>
                             ${concert.location ? `<p class="location">${concert.location}</p>` : ''}
                             ${concert.city ? `<p class="city">${concert.city}</p>` : ''}
-                            <p class="time">Ore ${concert.time}</p>
                             ${concert.notes ? `<p class="notes">${concert.notes}</p>` : ''}
                         </div>
                     </div>
