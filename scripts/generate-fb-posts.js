@@ -136,11 +136,11 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
   const textColor = '#ffffff';
   const tableBackgroundColor = 'rgba(0, 0, 0, 0.8)';
   
-  // Configurazione tabella senza header
+  // Configurazione tabella senza header (20% più grande)
   const padding = 20;
-  const rowHeight = Math.min(80, availableHeight / concerts.length); // Altezza massima riga
+  const rowHeight = Math.min(96, availableHeight / concerts.length); // 80 * 1.2 = 96px
   const tableHeight = rowHeight * concerts.length;
-  const tableWidth = Math.min(800, canvasWidth - 100); // Tabella più larga
+  const tableWidth = Math.min(960, canvasWidth - 60); // 800 * 1.2 = 960px
   const tableX = (canvasWidth - tableWidth) / 2;
   
   // Centra verticalmente la tabella nell'area disponibile
@@ -160,8 +160,8 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   
-  // Righe dei concerti (senza header)
-  ctx.font = '22px Arial';
+  // Righe dei concerti (senza header) - 20% più grandi
+  ctx.font = '26px Arial'; // 22 * 1.2 = 26px
   concerts.forEach((concert, index) => {
     const y = actualStartY + index * rowHeight;
     
@@ -175,22 +175,22 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
     
     // Data
     const dateText = `${concert.day}/${concert.month}`;
-    ctx.fillText(dateText, tableX + 15, y + 25);
+    ctx.fillText(dateText, tableX + 18, y + 30); // 15 * 1.2 = 18, 25 * 1.2 = 30
     
     // Venue
     const venueText = concert.venue;
-    ctx.fillText(venueText, tableX + 100, y + 25);
+    ctx.fillText(venueText, tableX + 120, y + 30); // 100 * 1.2 = 120
     
     // Indicatore acustico su nuova riga se presente
     if (concert.acoustic) {
-      ctx.font = '16px Arial';
-      ctx.fillStyle = textColor; // Bianco invece di rosso
-      ctx.fillText('(acustico)', tableX + 100, y + 50);
-      ctx.font = '22px Arial';
+      ctx.font = '19px Arial'; // 16 * 1.2 = 19px
+      ctx.fillStyle = textColor;
+      ctx.fillText('(acustico)', tableX + 120, y + 60); // 100 * 1.2 = 120, 50 * 1.2 = 60
+      ctx.font = '26px Arial';
     }
     
     // Location
-    ctx.fillText(concert.location, tableX + 450, y + 25);
+    ctx.fillText(concert.location, tableX + 540, y + 30); // 450 * 1.2 = 540
   });
   
   // Footer con indicatore pagina se ci sono più immagini
