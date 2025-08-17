@@ -79,9 +79,9 @@ function splitConcerts(concerts) {
 }
 
 async function generateImage(concerts, outputPath, imageNumber, totalImages) {
-  // Dimensioni ottimali per Facebook post (1200x630 per landscape)
-  const width = 1200;
-  const height = 630;
+  // Dimensioni quadrate per Facebook post
+  const width = 1080;
+  const height = 1080;
   
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
@@ -136,9 +136,9 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
   const textColor = '#ffffff';
   const tableBackgroundColor = 'rgba(0, 0, 0, 0.8)';
   
-  // Configurazione tabella
+  // Configurazione tabella senza header
   const padding = 20;
-  const rowHeight = availableHeight / (concerts.length + 1); // +1 per header
+  const rowHeight = availableHeight / concerts.length; // Nessun header
   const tableWidth = Math.min(800, canvasWidth - 100);
   const tableX = (canvasWidth - tableWidth) / 2;
   
@@ -156,22 +156,10 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   
-  // Header della tabella
-  ctx.font = 'bold 24px Arial';
-  const headerY = startY + rowHeight / 2;
-  
-  ctx.fillStyle = primaryColor;
-  ctx.fillRect(tableX, startY, tableWidth, rowHeight);
-  
-  ctx.fillStyle = textColor;
-  ctx.fillText('DATA', tableX + 20, headerY);
-  ctx.fillText('LOCALE', tableX + 150, headerY);
-  ctx.fillText('LUOGO', tableX + 450, headerY);
-  
-  // Righe dei concerti
-  ctx.font = '20px Arial';
+  // Righe dei concerti (senza header)
+  ctx.font = '28px Arial';
   concerts.forEach((concert, index) => {
-    const y = startY + (index + 1) * rowHeight;
+    const y = startY + index * rowHeight;
     const rowY = y + rowHeight / 2;
     
     // Sfondo alternato per le righe
@@ -188,10 +176,10 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
     
     // Venue con indicatore acustico
     const venueText = concert.venue + (concert.acoustic ? ' (acustico)' : '');
-    ctx.fillText(venueText, tableX + 150, rowY);
+    ctx.fillText(venueText, tableX + 140, rowY);
     
     // Location
-    ctx.fillText(concert.location, tableX + 450, rowY);
+    ctx.fillText(concert.location, tableX + 500, rowY);
   });
   
   // Footer con indicatore pagina se ci sono più immagini
