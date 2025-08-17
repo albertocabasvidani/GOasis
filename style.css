@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.7;
     color: #333333;
     background: #ffffff;
@@ -61,13 +61,13 @@ body {
 .band-member-photo h4 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #ffffff;
     margin-bottom: 0.3rem;
 }
 
 .band-member-photo p {
     font-size: 0.95rem;
-    color: #666666;
+    color: #b0b0b0;
     font-weight: 500;
 }
 
@@ -158,12 +158,13 @@ nav {
 }
 
 .hero-title {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 900;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 400;
     margin-bottom: 1rem;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.05em;
 }
 
 .hero-subtitle {
@@ -173,14 +174,6 @@ nav {
     font-weight: 300;
 }
 
-.hero-tagline {
-    font-style: italic;
-    color: #b22222;
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    margin-bottom: 3rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    font-weight: 300;
-}
 
 .hero-buttons {
     display: flex;
@@ -250,26 +243,33 @@ section h2 {
 }
 
 .band-section {
-    background: white;
+    background: #1a1a1a;
+    color: #e0e0e0;
 }
 
 .band-section h2,
 .concerts-section h2,
-.gallery-section h2,
 .contact-section h2 {
-    font-size: 2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 1.5rem;
     color: #1a1a1a;
+    letter-spacing: 0.05em;
 }
 
-.band-section p {
+.band-section h2 {
+    color: #ffffff;
+}
+
+.band-section > .container > p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
     text-align: center;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    color: #cccccc;
 }
 
 .band-members {
@@ -280,12 +280,13 @@ section h2 {
 }
 
 .member {
-    background: #f5f5f5;
+    background: #2a2a2a;
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #3a3a3a;
     transition: transform 0.3s ease;
+    color: #cccccc;
 }
 
 .member:hover {
@@ -420,41 +421,6 @@ section h2 {
     font-size: 1.1rem;
     display: block;
     margin-bottom: 5px;
-}
-
-/* Gallery Section */
-.gallery-section {
-    background: white;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.gallery-item {
-    aspect-ratio: 1;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: scale(1.05);
-}
-
-.placeholder-img {
-    width: 100%;
-    height: 100%;
-    background: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #808080;
-    font-size: 1.2rem;
-    font-weight: bold;
 }
 
 /* Contact Section */
