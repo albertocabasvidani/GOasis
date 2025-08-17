@@ -136,20 +136,24 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
   const textColor = '#ffffff';
   const tableBackgroundColor = 'rgba(0, 0, 0, 0.8)';
   
-  // Configurazione tabella senza header
+  // Configurazione tabella senza header (più piccola)
   const padding = 20;
-  const rowHeight = availableHeight / concerts.length; // Nessun header
-  const tableWidth = Math.min(800, canvasWidth - 100);
+  const rowHeight = Math.min(80, availableHeight / concerts.length); // Altezza massima riga
+  const tableHeight = rowHeight * concerts.length;
+  const tableWidth = Math.min(600, canvasWidth - 200); // Tabella più stretta
   const tableX = (canvasWidth - tableWidth) / 2;
+  
+  // Centra verticalmente la tabella nell'area disponibile
+  const actualStartY = startY + (availableHeight - tableHeight) / 2;
   
   // Sfondo tabella
   ctx.fillStyle = tableBackgroundColor;
-  ctx.fillRect(tableX - padding, startY - padding, tableWidth + padding * 2, availableHeight + padding * 2);
+  ctx.fillRect(tableX - padding, actualStartY - padding, tableWidth + padding * 2, tableHeight + padding * 2);
   
   // Border della tabella
   ctx.strokeStyle = primaryColor;
   ctx.lineWidth = 3;
-  ctx.strokeRect(tableX - padding, startY - padding, tableWidth + padding * 2, availableHeight + padding * 2);
+  ctx.strokeRect(tableX - padding, actualStartY - padding, tableWidth + padding * 2, tableHeight + padding * 2);
   
   // Font per il testo
   ctx.fillStyle = textColor;
@@ -157,10 +161,9 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
   ctx.textBaseline = 'middle';
   
   // Righe dei concerti (senza header)
-  ctx.font = '28px Arial';
+  ctx.font = '22px Arial';
   concerts.forEach((concert, index) => {
-    const y = startY + index * rowHeight;
-    const rowY = y + rowHeight / 2;
+    const y = actualStartY + index * rowHeight;
     
     // Sfondo alternato per le righe
     if (index % 2 === 1) {
@@ -172,22 +175,31 @@ async function drawConcertsTable(ctx, concerts, canvasWidth, startY, availableHe
     
     // Data
     const dateText = `${concert.day}/${concert.month}`;
-    ctx.fillText(dateText, tableX + 20, rowY);
+    ctx.fillText(dateText, tableX + 15, y + 25);
     
-    // Venue con indicatore acustico
-    const venueText = concert.venue + (concert.acoustic ? ' (acustico)' : '');
-    ctx.fillText(venueText, tableX + 140, rowY);
+    // Venue
+    const venueText = concert.venue;
+    ctx.fillText(venueText, tableX + 100, y + 25);
+    
+    // Indicatore acustico su nuova riga se presente
+    if (concert.acoustic) {
+      ctx.font = '16px Arial';
+      ctx.fillStyle = primaryColor;
+      ctx.fillText('(acustico)', tableX + 100, y + 50);
+      ctx.fillStyle = textColor;
+      ctx.font = '22px Arial';
+    }
     
     // Location
-    ctx.fillText(concert.location, tableX + 500, rowY);
+    ctx.fillText(concert.location, tableX + 350, y + 25);
   });
   
   // Footer con indicatore pagina se ci sono più immagini
   if (totalImages > 1) {
-    ctx.font = '16px Arial';
+    ctx.font = '18px Arial';
     ctx.fillStyle = primaryColor;
     ctx.textAlign = 'center';
-    const footerY = startY + availableHeight + 40;
+    const footerY = actualStartY + tableHeight + 60;
     ctx.fillText(`${imageNumber} di ${totalImages}`, canvasWidth / 2, footerY);
   }
 }
