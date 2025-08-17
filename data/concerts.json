@@ -1,5 +1,15 @@
 [
   {
+    "day": "22",
+    "month": "08",
+    "year": 2025,
+    "venue": "Eccolo River Beer Truck",
+    "location": "Turriaco",
+    "city": "",
+    "notes": "",
+    "acoustic": true
+  },
+  {
     "day": "23",
     "month": "08",
     "year": 2025,
@@ -13,11 +23,11 @@
     "day": "29",
     "month": "08",
     "year": 2025,
-    "venue": "Eccolo River Beer Truck",
-    "location": "Turriaco",
+    "venue": "QT Quarantasei Tredici",
+    "location": "Premariacco",
     "city": "",
     "notes": "",
-    "acoustic": true
+    "acoustic": false
   },
   {
     "day": "30",
@@ -45,6 +55,16 @@
     "year": 2025,
     "venue": "Garage Music Club",
     "location": "Gradisca d’Isonzo",
+    "city": "",
+    "notes": "",
+    "acoustic": false
+  },
+  {
+    "day": "15",
+    "month": "11",
+    "year": 2025,
+    "venue": "La Tana",
+    "location": "Udine",
     "city": "",
     "notes": "",
     "acoustic": false
