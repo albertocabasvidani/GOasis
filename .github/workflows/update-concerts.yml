@@ -37,16 +37,19 @@ jobs:
         NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
       run: npm run fetch-concerts
     
+    - name: Generate Facebook post images
+      run: npm run generate-fb-posts
+    
     - name: Check for changes
       id: git-check
       run: |
-        git diff --exit-code data/concerts.json || echo "changes=true" >> $GITHUB_OUTPUT
+        git diff --exit-code data/concerts.json img/fb-post-*.png || echo "changes=true" >> $GITHUB_OUTPUT
     
     - name: Commit and push if changed
       if: steps.git-check.outputs.changes == 'true'
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add data/concerts.json
-        git commit -m "Update concerts from Notion [skip ci]"
+        git add data/concerts.json img/fb-post-*.png
+        git commit -m "Update concerts and Facebook post images from Notion [skip ci]"
         git push
