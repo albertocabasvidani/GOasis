@@ -75,16 +75,12 @@ async function generateImage(concerts, outputPath, imageNumber, totalImages) {
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
   
-  // Carica l'immagine di sfondo (hero.png in B&N)
-  const heroPath = path.join(__dirname, '..', 'img', 'hero.png');
-  const heroImage = await loadImage(heroPath);
+  // Carica l'immagine di sfondo per Facebook
+  const backgroundPath = path.join(__dirname, '..', 'img', 'sfondoFB.jpg');
+  const backgroundImage = await loadImage(backgroundPath);
   
-  // Disegna lo sfondo in scala di grigi
-  ctx.drawImage(heroImage, 0, 0, width, height);
-  
-  // Applica overlay scuro per leggibilità
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
-  ctx.fillRect(0, 0, width, height);
+  // Disegna lo sfondo
+  ctx.drawImage(backgroundImage, 0, 0, width, height);
   
   // Carica e disegna il logo GOasis in alto
   const logoPath = path.join(__dirname, '..', 'img', 'logo GOasis.jpeg');
