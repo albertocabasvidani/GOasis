@@ -118,7 +118,6 @@ nav {
 /* Hero Section */
 .hero {
     position: relative;
-    background: url('img/hero.png') center/cover no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -126,6 +125,19 @@ nav {
     color: white;
     text-align: center;
     overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('img/hero.png') center/cover no-repeat;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    z-index: -1;
 }
 
 .hero-overlay {
