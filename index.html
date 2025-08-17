@@ -151,25 +151,36 @@
                 
                 const concerts = await response.json();
                 
+                // Debug logging
+                console.log('Loaded concerts:', concerts);
+                concerts.forEach((concert, index) => {
+                    console.log(`Concert ${index}:`, concert.venue, 'acoustic:', concert.acoustic);
+                });
+                
                 if (concerts.length === 0) {
                     concertList.innerHTML = '<p style="text-align: center; color: #666;">Nessun concerto programmato al momento</p>';
                     return;
                 }
                 
                 // Genera HTML per ogni concerto
-                const concertsHTML = concerts.map(concert => `
+                const concertsHTML = concerts.map(concert => {
+                    const acousticText = concert.acoustic ? ' (acustico)' : '';
+                    console.log(`Generating HTML for ${concert.venue}: acoustic=${concert.acoustic}, acousticText="${acousticText}"`);
+                    
+                    return `
                     <div class="concert-item">
                         <div class="date-info">
                             <span class="date">${concert.day}/${concert.month}/${concert.year || '2025'}</span>
                         </div>
                         <div class="details">
-                            <h3>${concert.venue}${concert.acoustic ? ' (acustico)' : ''}</h3>
+                            <h3>${concert.venue}${acousticText}</h3>
                             ${concert.location ? `<p class="location">${concert.location}</p>` : ''}
                             ${concert.city ? `<p class="city">${concert.city}</p>` : ''}
                             ${concert.notes ? `<p class="notes">${concert.notes}</p>` : ''}
                         </div>
                     </div>
-                `).join('');
+                `;
+                }).join('');
                 
                 concertList.innerHTML = concertsHTML;
                 
