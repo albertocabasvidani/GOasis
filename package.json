@@ -5,10 +5,13 @@
   "scripts": {
     "fetch-concerts": "node scripts/fetch-concerts.js",
     "fetch-map": "node scripts/fetch-past-concerts-map.js",
-    "generate-fb-posts": "node scripts/generate-fb-posts.js"
+    "generate-fb-posts": "node scripts/generate-fb-posts.js",
+    "post-to-facebook": "node scripts/post-to-facebook.js"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14",
-    "canvas": "^2.11.2"
+    "canvas": "^2.11.2",
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.7.0"
   }
 }
