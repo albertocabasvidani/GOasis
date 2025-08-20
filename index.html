@@ -22,6 +22,7 @@
                 <li><a href="#band">La Band</a></li>
                 <li><a href="#concerti">Concerti</a></li>
                 <li><a href="#mappa">Mappa</a></li>
+                <li><a href="#galleria">Gallery</a></li>
                 <li><a href="#contatti">Contatti</a></li>
             </ul>
         </nav>
@@ -95,6 +96,45 @@
                 <div id="map-loading" class="map-loading">Caricamento mappa...</div>
             </div>
         </section>
+
+        <section id="galleria" class="gallery-section">
+            <div class="container">
+                <h2>Gallery</h2>
+                <div class="carousel-container">
+                    <button class="carousel-btn carousel-prev" id="carousel-prev">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- Immagini verranno caricate dinamicamente -->
+                    </div>
+                    <button class="carousel-btn carousel-next" id="carousel-next">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <button class="lightbox-prev" id="lightbox-prev">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="lightbox-content" id="lightbox-content">
+                <!-- Contenuto dinamico -->
+            </div>
+            <button class="lightbox-next" id="lightbox-next">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18l6-6-6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
 
         <section id="contatti" class="contact-section">
             <div class="container">
@@ -322,12 +362,155 @@
             }
         }
         
+        // Gallery Carousel e Lightbox
+        let galleryItems = [];
+        let currentCarouselIndex = 0;
+        let currentLightboxIndex = 0;
+        
+        function initGallery() {
+            // Lista di immagini nella galleria (in futuro potrebbe essere dinamico)
+            galleryItems = [
+                { type: 'image', src: 'img/galleria/goasis-live-1.jpeg', title: 'GOasis Live 1' },
+                { type: 'image', src: 'img/galleria/goasis-live-2.jpeg', title: 'GOasis Live 2' },
+                { type: 'image', src: 'img/galleria/goasis-live-3.jpeg', title: 'GOasis Live 3' }
+            ];
+            
+            const track = document.getElementById('carousel-track');
+            
+            // Popola il carousel
+            galleryItems.forEach((item, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                
+                if (item.type === 'image') {
+                    const img = document.createElement('img');
+                    img.src = item.src;
+                    img.alt = item.title;
+                    img.addEventListener('click', () => openLightbox(index));
+                    slide.appendChild(img);
+                } else if (item.type === 'video') {
+                    const video = document.createElement('video');
+                    video.src = item.src;
+                    video.controls = false;
+                    video.addEventListener('click', () => openLightbox(index));
+                    slide.appendChild(video);
+                }
+                
+                track.appendChild(slide);
+            });
+            
+            // Setup carousel controls
+            document.getElementById('carousel-prev').addEventListener('click', () => moveCarousel(-1));
+            document.getElementById('carousel-next').addEventListener('click', () => moveCarousel(1));
+            
+            // Setup lightbox controls
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-prev').addEventListener('click', () => moveLightbox(-1));
+            document.getElementById('lightbox-next').addEventListener('click', () => moveLightbox(1));
+            
+            // Chiudi lightbox cliccando fuori
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') closeLightbox();
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') moveLightbox(-1);
+                    if (e.key === 'ArrowRight') moveLightbox(1);
+                    if (e.key === 'Escape') closeLightbox();
+                }
+            });
+            
+            updateCarousel();
+        }
+        
+        function moveCarousel(direction) {
+            const slidesPerView = getSlidesPerView();
+            const maxIndex = Math.max(0, galleryItems.length - slidesPerView);
+            
+            currentCarouselIndex += direction;
+            currentCarouselIndex = Math.max(0, Math.min(currentCarouselIndex, maxIndex));
+            
+            updateCarousel();
+        }
+        
+        function getSlidesPerView() {
+            const width = window.innerWidth;
+            if (width > 1200) return 4;
+            if (width > 900) return 3;
+            if (width > 600) return 2;
+            return 1;
+        }
+        
+        function updateCarousel() {
+            const track = document.getElementById('carousel-track');
+            const slideWidth = 100 / getSlidesPerView();
+            const offset = -currentCarouselIndex * slideWidth;
+            track.style.transform = `translateX(${offset}%)`;
+            
+            // Update button states
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+            const slidesPerView = getSlidesPerView();
+            const maxIndex = Math.max(0, galleryItems.length - slidesPerView);
+            
+            prevBtn.style.opacity = currentCarouselIndex === 0 ? '0.3' : '1';
+            nextBtn.style.opacity = currentCarouselIndex >= maxIndex ? '0.3' : '1';
+        }
+        
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            updateLightbox();
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        function moveLightbox(direction) {
+            currentLightboxIndex += direction;
+            if (currentLightboxIndex < 0) currentLightboxIndex = galleryItems.length - 1;
+            if (currentLightboxIndex >= galleryItems.length) currentLightboxIndex = 0;
+            updateLightbox();
+        }
+        
+        function updateLightbox() {
+            const content = document.getElementById('lightbox-content');
+            const item = galleryItems[currentLightboxIndex];
+            
+            content.innerHTML = '';
+            
+            if (item.type === 'image') {
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.title;
+                content.appendChild(img);
+            } else if (item.type === 'video') {
+                const video = document.createElement('video');
+                video.src = item.src;
+                video.controls = true;
+                video.autoplay = true;
+                content.appendChild(video);
+            }
+        }
+        
         // Carica concerti e mappa quando la pagina è pronta
         document.addEventListener('DOMContentLoaded', () => {
             createImageCollage();
             loadConcerts();
             loadConcertMap();
+            initGallery();
         });
+        
+        // Update carousel on window resize
+        window.addEventListener('resize', updateCarousel);
     </script>
 </body>
 </html>
