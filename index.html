@@ -539,17 +539,31 @@
                     'autoplay': 1,
                     'loop': 1,
                     'playlist': '-xQsH3PR-1c', // Required for loop to work
-                    'controls': 0,
-                    'modestbranding': 1,
-                    'rel': 0,
-                    'showinfo': 0,
-                    'mute': 1,
-                    'playsinline': 1
+                    'controls': 0,              // Hide player controls
+                    'modestbranding': 1,         // Minimize YouTube branding
+                    'rel': 0,                    // Don't show related videos
+                    'showinfo': 0,               // Hide video info
+                    'mute': 1,                   // Start muted
+                    'playsinline': 1,            // Play inline on mobile
+                    'disablekb': 1,              // Disable keyboard controls
+                    'fs': 0,                     // Hide fullscreen button
+                    'iv_load_policy': 3,         // Hide video annotations
+                    'autohide': 1,               // Auto hide controls
+                    'enablejsapi': 1,            // Enable JS API
+                    'origin': window.location.origin
                 },
                 events: {
-                    'onReady': onPlayerReady
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
                 }
             });
+        }
+        
+        function onPlayerStateChange(event) {
+            // If video ends, restart it (backup for loop)
+            if (event.data === YT.PlayerState.ENDED) {
+                player.playVideo();
+            }
         }
         
         function onPlayerReady(event) {
