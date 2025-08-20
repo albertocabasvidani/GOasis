@@ -304,28 +304,56 @@ section h2 {
 .concerts-section {
     background: #fafafa;
     padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.concert-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0 3rem 0;
-    flex-wrap: wrap;
+/* Collage Background */
+.collage-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
-.gallery-image {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
+.collage-image {
+    position: absolute;
+    background-size: cover;
+    background-position: center;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    filter: grayscale(50%) blur(1px);
+    transition: all 0.5s ease;
+    animation: floatAnimation 20s infinite ease-in-out;
 }
 
-.gallery-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0) rotate(var(--rotation));
+    }
+    25% {
+        transform: translateY(-10px) rotate(calc(var(--rotation) + 5deg));
+    }
+    50% {
+        transform: translateY(5px) rotate(calc(var(--rotation) - 3deg));
+    }
+    75% {
+        transform: translateY(-5px) rotate(calc(var(--rotation) + 3deg));
+    }
+}
+
+.concerts-section .container {
+    position: relative;
+    z-index: 1;
+    background: rgba(250, 250, 250, 0.9);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .concert-list {

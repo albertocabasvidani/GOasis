@@ -41,13 +41,9 @@
         </section>
 
         <section id="concerti" class="concerts-section">
+            <div class="collage-background" id="collage-background"></div>
             <div class="container">
                 <h2>I prossimi concerti</h2>
-                <div class="concert-gallery">
-                    <img src="img/galleria/goasis-live-1.jpeg" alt="GOasis Live" class="gallery-image">
-                    <img src="img/galleria/goasis-live-2.jpeg" alt="GOasis Live" class="gallery-image">
-                    <img src="img/galleria/goasis-live-3.jpeg" alt="GOasis Live" class="gallery-image">
-                </div>
                 <div class="concert-list" id="concert-list">
                     <!-- I concerti verranno caricati dinamicamente -->
                     <div class="loading">Caricamento concerti...</div>
@@ -271,8 +267,64 @@
             }
         }
         
+        // Crea collage randomizzato di immagini
+        function createImageCollage() {
+            const collageContainer = document.getElementById('collage-background');
+            const images = [
+                'img/galleria/goasis-live-1.jpeg',
+                'img/galleria/goasis-live-2.jpeg', 
+                'img/galleria/goasis-live-3.jpeg'
+            ];
+            
+            // Calcola numero di immagini basato sulla viewport
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight * 1.5; // Considera l'altezza della sezione
+            const imageSize = 150; // Dimensione base delle immagini
+            const cols = Math.ceil(viewportWidth / imageSize) + 2;
+            const rows = Math.ceil(viewportHeight / imageSize) + 2;
+            const totalImages = cols * rows;
+            
+            // Crea griglia di immagini randomizzate
+            for (let i = 0; i < totalImages; i++) {
+                const img = document.createElement('div');
+                img.className = 'collage-image';
+                
+                // Scegli immagine random
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+                img.style.backgroundImage = `url('${randomImage}')`;
+                
+                // Posizione random all'interno della griglia
+                const col = i % cols;
+                const row = Math.floor(i / cols);
+                const randomOffsetX = (Math.random() - 0.5) * 30;
+                const randomOffsetY = (Math.random() - 0.5) * 30;
+                
+                img.style.left = `${col * imageSize + randomOffsetX}px`;
+                img.style.top = `${row * imageSize + randomOffsetY}px`;
+                
+                // Rotazione random
+                const randomRotation = (Math.random() - 0.5) * 30;
+                img.style.setProperty('--rotation', `${randomRotation}deg`);
+                img.style.transform = `rotate(${randomRotation}deg)`;
+                
+                // Dimensione random
+                const randomScale = 0.8 + Math.random() * 0.4;
+                img.style.width = `${imageSize * randomScale}px`;
+                img.style.height = `${imageSize * randomScale}px`;
+                
+                // Opacità random per effetto profondità
+                img.style.opacity = 0.1 + Math.random() * 0.3;
+                
+                // Delay random per animazione
+                img.style.animationDelay = `${Math.random() * 20}s`;
+                
+                collageContainer.appendChild(img);
+            }
+        }
+        
         // Carica concerti e mappa quando la pagina è pronta
         document.addEventListener('DOMContentLoaded', () => {
+            createImageCollage();
             loadConcerts();
             loadConcertMap();
         });
