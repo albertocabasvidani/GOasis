@@ -52,6 +52,30 @@
             </div>
         </section>
 
+        <section id="video" class="video-section">
+            <div class="container">
+                <div class="video-wrapper">
+                    <video id="promo-video" autoplay loop muted playsinline>
+                        <source src="video/GOasis teaser.mov" type="video/quicktime">
+                        <source src="video/GOasis teaser.mp4" type="video/mp4">
+                        Il tuo browser non supporta il tag video.
+                    </video>
+                    <button id="sound-toggle" class="sound-toggle" aria-label="Attiva/Disattiva audio">
+                        <svg class="sound-icon sound-off" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <svg class="sound-icon sound-on" style="display: none;" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <section id="band" class="band-section">
             <div class="container">
                 <h2>La Band</h2>
@@ -502,11 +526,32 @@
         }
         
         // Carica concerti e mappa quando la pagina è pronta
+        // Video sound toggle functionality
+        function initVideoControls() {
+            const video = document.getElementById('promo-video');
+            const soundToggle = document.getElementById('sound-toggle');
+            const soundOffIcon = soundToggle.querySelector('.sound-off');
+            const soundOnIcon = soundToggle.querySelector('.sound-on');
+            
+            soundToggle.addEventListener('click', () => {
+                if (video.muted) {
+                    video.muted = false;
+                    soundOffIcon.style.display = 'none';
+                    soundOnIcon.style.display = 'block';
+                } else {
+                    video.muted = true;
+                    soundOffIcon.style.display = 'block';
+                    soundOnIcon.style.display = 'none';
+                }
+            });
+        }
+        
         document.addEventListener('DOMContentLoaded', () => {
             createImageCollage();
             loadConcerts();
             loadConcertMap();
             initGallery();
+            initVideoControls();
         });
         
         // Update carousel on window resize
