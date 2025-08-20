@@ -55,11 +55,7 @@
         <section id="video" class="video-section">
             <div class="container">
                 <div class="video-wrapper">
-                    <video id="promo-video" autoplay loop muted playsinline>
-                        <source src="video/GOasis teaser.mov" type="video/quicktime">
-                        <source src="video/GOasis teaser.mp4" type="video/mp4">
-                        Il tuo browser non supporta il tag video.
-                    </video>
+                    <div id="youtube-player"></div>
                     <button id="sound-toggle" class="sound-toggle" aria-label="Attiva/Disattiva audio">
                         <svg class="sound-icon sound-off" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
@@ -194,6 +190,9 @@
             </div>
         </section>
     </main>
+
+    <!-- YouTube API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
 
     <footer>
         <div class="container">
@@ -526,20 +525,54 @@
         }
         
         // Carica concerti e mappa quando la pagina è pronta
+        // YouTube player
+        let player;
+        let playerReady = false;
+        
+        // This function gets called by YouTube API
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '100%',
+                width: '100%',
+                videoId: '-xQsH3PR-1c',
+                playerVars: {
+                    'autoplay': 1,
+                    'loop': 1,
+                    'playlist': '-xQsH3PR-1c', // Required for loop to work
+                    'controls': 0,
+                    'modestbranding': 1,
+                    'rel': 0,
+                    'showinfo': 0,
+                    'mute': 1,
+                    'playsinline': 1
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+        
+        function onPlayerReady(event) {
+            playerReady = true;
+            event.target.playVideo();
+            initVideoControls();
+        }
+        
         // Video sound toggle functionality
         function initVideoControls() {
-            const video = document.getElementById('promo-video');
             const soundToggle = document.getElementById('sound-toggle');
             const soundOffIcon = soundToggle.querySelector('.sound-off');
             const soundOnIcon = soundToggle.querySelector('.sound-on');
             
+            if (!playerReady || !player) return;
+            
             soundToggle.addEventListener('click', () => {
-                if (video.muted) {
-                    video.muted = false;
+                if (player.isMuted()) {
+                    player.unMute();
                     soundOffIcon.style.display = 'none';
                     soundOnIcon.style.display = 'block';
                 } else {
-                    video.muted = true;
+                    player.mute();
                     soundOffIcon.style.display = 'block';
                     soundOnIcon.style.display = 'none';
                 }
@@ -551,7 +584,6 @@
             loadConcerts();
             loadConcertMap();
             initGallery();
-            initVideoControls();
         });
         
         // Update carousel on window resize

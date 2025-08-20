@@ -777,12 +777,18 @@ footer p {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-.video-wrapper video {
+#youtube-player {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     border-radius: 8px;
 }
 
