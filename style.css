@@ -795,7 +795,7 @@ footer p {
 .sound-toggle {
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     background: rgba(0, 0, 0, 0.7);
     border: 2px solid #fff;
     color: #fff;
@@ -829,7 +829,7 @@ footer p {
         width: 40px;
         height: 40px;
         bottom: 15px;
-        right: 15px;
+        left: 15px;
     }
     
     .sound-icon {
