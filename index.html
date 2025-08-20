@@ -550,7 +550,9 @@
                     'iv_load_policy': 3,         // Hide video annotations
                     'autohide': 1,               // Auto hide controls
                     'enablejsapi': 1,            // Enable JS API
-                    'origin': window.location.origin
+                    'origin': window.location.origin,
+                    'vq': 'hd1080',              // Request 1080p quality
+                    'quality': 'hd1080'          // Alternative quality parameter
                 },
                 events: {
                     'onReady': onPlayerReady,
@@ -564,11 +566,20 @@
             if (event.data === YT.PlayerState.ENDED) {
                 player.playVideo();
             }
+            // When playing, ensure 1080p quality
+            if (event.data === YT.PlayerState.PLAYING) {
+                const currentQuality = player.getPlaybackQuality();
+                if (currentQuality !== 'hd1080') {
+                    player.setPlaybackQuality('hd1080');
+                }
+            }
         }
         
         function onPlayerReady(event) {
             playerReady = true;
             event.target.playVideo();
+            // Force 1080p quality if available
+            event.target.setPlaybackQuality('hd1080');
             initVideoControls();
         }
         
