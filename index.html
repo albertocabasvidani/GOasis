@@ -23,8 +23,7 @@
                 <li><a href="#concerti">Concerti</a></li>
                 <li><a href="#mappa">Mappa</a></li>
                 <li><a href="#galleria">Gallery</a></li>
-                <li><a href="#contact">Contattaci</a></li>
-                <li><a href="#contatti">Social</a></li>
+                <li><a href="#contatti">Contatti</a></li>
             </ul>
         </nav>
     </header>
@@ -188,44 +187,6 @@
                         </svg>
                     </a>
                 </div>
-            </div>
-        </section>
-        <!-- Contact Form Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Contattaci</h2>
-                <p class="contact-subtitle">Hai domande o vuoi prenotare GOasis per il tuo evento? Scrivici!</p>
-                
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nome *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Telefono</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Oggetto *</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Messaggio *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Invia Messaggio</button>
-                    
-                    <div id="form-message" class="form-message"></div>
-                </form>
             </div>
         </section>
     </main>
@@ -643,79 +604,11 @@
             });
         }
         
-        // Contact form handling
-        function initContactForm() {
-            const contactForm = document.getElementById('contact-form');
-            const formMessage = document.getElementById('form-message');
-            
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                // Get form data
-                const formData = new FormData(contactForm);
-                const data = {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    phone: formData.get('phone') || 'Non fornito',
-                    subject: formData.get('subject'),
-                    message: formData.get('message')
-                };
-                
-                // Disable submit button
-                const submitBtn = contactForm.querySelector('.submit-btn');
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Invio in corso...';
-                
-                try {
-                    // Create mailto link
-                    const mailtoLink = `mailto:cinquequarti@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(
-                        `Nome: ${data.name}\nEmail: ${data.email}\nTelefono: ${data.phone}\n\nMessaggio:\n${data.message}`
-                    )}`;
-                    
-                    // Try to open mailto link
-                    const link = document.createElement('a');
-                    link.href = mailtoLink;
-                    link.target = '_blank';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    
-                    // Show message with email details
-                    formMessage.className = 'form-message success';
-                    formMessage.innerHTML = `
-                        <strong>Messaggio preparato!</strong><br>
-                        Se il client email non si apre, puoi inviare manualmente a:<br>
-                        <strong>cinquequarti@gmail.com</strong><br>
-                        Oggetto: ${data.subject}<br>
-                        <small>Oppure copia i dati e incollali nella tua email.</small>
-                    `;
-                    
-                    // Reset form after 8 seconds
-                    setTimeout(() => {
-                        contactForm.reset();
-                        formMessage.className = 'form-message';
-                        formMessage.innerHTML = '';
-                    }, 8000);
-                    
-                } catch (error) {
-                    // Show error message
-                    formMessage.className = 'form-message error';
-                    formMessage.textContent = 'Si è verificato un errore. Per favore riprova più tardi.';
-                    console.error('Form submission error:', error);
-                } finally {
-                    // Re-enable submit button
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Invia Messaggio';
-                }
-            });
-        }
-        
         document.addEventListener('DOMContentLoaded', () => {
             createImageCollage();
             loadConcerts();
             loadConcertMap();
             initGallery();
-            initContactForm();
         });
         
         // Update carousel on window resize
