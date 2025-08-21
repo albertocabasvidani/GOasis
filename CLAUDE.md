@@ -68,12 +68,13 @@ The entire website is in a single `index.html` file with embedded JavaScript for
 - Dynamic concert list loading from JSON
 - Photo gallery with carousel/lightbox functionality
 - Interactive Leaflet map for past concerts
+- YouTube video integration with custom controls
 - Responsive mobile menu
 - Smooth scroll navigation
 
-Styling is in `style.css` (766 lines) organized by:
+Styling is in `style.css` organized by:
 - Base styles and variables
-- Component-specific sections (hero, band, concerts, gallery, etc.)
+- Component-specific sections (hero, band, concerts, gallery, video, etc.)
 - Responsive breakpoints for mobile/tablet/desktop
 
 ### GitHub Actions Workflows
@@ -101,3 +102,5 @@ Required for automation (set in GitHub Secrets):
 4. **Automation First**: Content updates via GitHub Actions, not manual editing
 5. **Mobile Responsive**: Mobile-first CSS with specific breakpoints at 768px and 1024px
 6. **Image Naming**: Facebook posts use format `fb-post-concerts-YYYY-MM-DD-TIMESTAMP.png`
+7. **No Contact Forms**: The site uses social media and WhatsApp for contact - avoid adding complex contact forms
+8. **Video Integration**: YouTube embed with custom controls for sound toggle and forced 1080p quality
