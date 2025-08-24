@@ -1,19 +1,35 @@
 [
   {
-    "id": "1f0cb515-bb6a-80d9-8b29-fcaeeee0ec60",
-    "venue": "QT",
-    "location": "Premariacco",
+    "id": "217cb515-bb6a-81d0-ae19-c05a5da7cc66",
+    "venue": "Mulin di Braida",
+    "location": "Saciletto di Ruda",
     "city": "",
-    "date": "26 luglio 2025",
+    "date": "23 agosto 2025",
     "time": "21:00",
     "coordinates": {
-      "lat": 46.0606866,
-      "lng": 13.3947783,
-      "display_name": "Premariacco, Udine, Friuli-Venezia Giulia, 33040, Italia",
-      "type": "administrative",
+      "lat": 45.8403882,
+      "lng": 13.3570762,
+      "display_name": "Mulin di Braida, Saciletto / Sassîl, Ruda / Rude, Udine, Friuli-Venezia Giulia, 33050, Italia",
+      "type": "locality",
       "confidence": "single_result"
     },
-    "popupText": "<strong>QT</strong><br>Premariacco<br>26 luglio 2025"
+    "popupText": "<strong>Mulin di Braida</strong><br>Saciletto di Ruda<br>23 agosto 2025"
+  },
+  {
+    "id": "1f0cb515-bb6a-80e1-8bc0-e72f3f7f591b",
+    "venue": "Eccolo River Beer Truck",
+    "location": "Turriaco",
+    "city": "",
+    "date": "22 agosto 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8285487,
+      "lng": 13.4305488,
+      "display_name": "Eccolo! River Beer Truck, Via Roma, Turriaco / Turiàc / Turjak, Gorizia, Friuli-Venezia Giulia, 34070, Italia",
+      "type": "bar",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Eccolo River Beer Truck</strong><br>Turriaco<br>22 agosto 2025"
   },
   {
     "id": "207cb515-bb6a-8025-9674-cfdafaade349",
