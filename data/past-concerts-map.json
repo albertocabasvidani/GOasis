@@ -1,5 +1,37 @@
 [
   {
+    "id": "1f0cb515-bb6a-806d-a4ef-c10f17db9def",
+    "venue": "Ristorante All’Invidia",
+    "location": "Pavia di Udine",
+    "city": "",
+    "date": "30 agosto 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.9940335,
+      "lng": 13.2692514,
+      "display_name": "All'Invidia, 9, Via Jacopo Marinoni, Zona Industriale Udinese, Cortello / Curtiel, Pavia di Udine / Pavie, Udine, Friuli-Venezia Giulia, 33050, Italia",
+      "type": "restaurant",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Ristorante All’Invidia</strong><br>Pavia di Udine<br>30 agosto 2025"
+  },
+  {
+    "id": "1f0cb515-bb6a-80d9-8b29-fcaeeee0ec60",
+    "venue": "QT Quarantasei Tredici",
+    "location": "Premariacco",
+    "city": "",
+    "date": "29 agosto 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.0606866,
+      "lng": 13.3947783,
+      "display_name": "Premariacco, Udine, Friuli-Venezia Giulia, 33040, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>QT Quarantasei Tredici</strong><br>Premariacco<br>29 agosto 2025"
+  },
+  {
     "id": "217cb515-bb6a-81d0-ae19-c05a5da7cc66",
     "venue": "Mulin di Braida",
     "location": "Saciletto di Ruda",
