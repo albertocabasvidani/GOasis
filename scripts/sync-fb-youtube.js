@@ -47,6 +47,8 @@ class FacebookYouTubeSyncer {
   async getFacebookVideos(limit = 10) {
     const url = `https://graph.facebook.com/v18.0/${this.fbPageId}/videos?fields=id,title,description,created_time,source,length,picture&access_token=${this.fbAccessToken}&limit=${limit}`;
     
+    console.log(`🔍 Fetching Facebook videos from page: ${this.fbPageId.substring(0, 8)}...`);
+    
     return new Promise((resolve, reject) => {
       https.get(url, (res) => {
         let data = '';
@@ -55,11 +57,26 @@ class FacebookYouTubeSyncer {
           try {
             const result = JSON.parse(data);
             if (result.error) {
+              console.error('❌ Facebook API Error:', result.error);
               reject(new Error(`Facebook API error: ${result.error.message}`));
             } else {
-              resolve(result.data || []);
+              const videos = result.data || [];
+              console.log(`📊 Facebook API returned ${videos.length} videos`);
+              
+              videos.forEach((video, index) => {
+                console.log(`📹 Video ${index + 1}: ${video.title || video.id}`);
+                console.log(`   Has source: ${video.source ? '✅' : '❌'}`);
+                console.log(`   Created: ${video.created_time}`);
+                if (video.length) {
+                  console.log(`   Duration: ${Math.floor(video.length / 60)}:${(video.length % 60).toString().padStart(2, '0')}`);
+                }
+              });
+              
+              resolve(videos);
             }
           } catch (error) {
+            console.error('❌ Failed to parse Facebook response:', error.message);
+            console.log('Raw response:', data.substring(0, 500));
             reject(error);
           }
         });
