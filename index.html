@@ -17,7 +17,12 @@
             <div class="logo">
                 <img src="img/logo GOasis.jpeg" alt="GOasis Logo">
             </div>
-            <ul class="nav-links">
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#band">La Band</a></li>
                 <li><a href="#concerti">Concerti</a></li>
@@ -611,11 +616,47 @@
             });
         }
         
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileToggle = document.getElementById('mobile-menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            navLinks.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    mobileToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    mobileToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+        
         document.addEventListener('DOMContentLoaded', () => {
             createImageCollage();
             loadConcerts();
             loadConcertMap();
             initGallery();
+            initMobileMenu();
         });
         
         // Update carousel on window resize
