@@ -1,0 +1,100 @@
+name: Full Sync Facebook Videos to YouTube (One-time)
+
+on:
+  workflow_dispatch:
+    inputs:
+      playlist_name:
+        description: 'YouTube playlist name'
+        required: false
+        default: 'Da Facebook'
+        type: string
+      max_videos:
+        description: 'Maximum videos to sync (default: 50)'
+        required: false
+        default: '50'
+        type: string
+
+jobs:
+  full-sync-videos:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Git LFS
+        run: |
+          git lfs install
+          mkdir -p temp-video
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Full sync of all Facebook videos to YouTube
+        env:
+          FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          echo "🚀 Starting FULL sync of all Facebook videos..."
+          echo "📊 Max videos to process: ${{ github.event.inputs.max_videos || '50' }}"
+          echo "📂 Target playlist: ${{ github.event.inputs.playlist_name || 'Da Facebook' }}"
+          
+          # Clear existing videos.json for full resync
+          echo '{"videos": [], "lastSync": null, "totalSynced": 0}' > data/videos.json || mkdir -p data && echo '{"videos": [], "lastSync": null, "totalSynced": 0}' > data/videos.json
+          
+          # Run full sync
+          node scripts/sync-fb-youtube.js \
+            --full \
+            --playlist="${{ github.event.inputs.playlist_name || 'Da Facebook' }}" \
+            --limit=${{ github.event.inputs.max_videos || '50' }}
+
+      - name: Cleanup temporary video files
+        run: |
+          if [ -d "temp-video" ] && [ "$(ls -A temp-video)" ]; then
+            echo "🧹 Cleaning up temporary video files..."
+            rm -rf temp-video/*
+            git add temp-video/
+            git commit -m "Clean temporary video storage after full sync" || echo "No temp files to clean"
+            git push || echo "Nothing to push for cleanup"
+          else
+            echo "✅ No temporary files to clean"
+          fi
+
+      - name: Commit video metadata updates
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git add data/videos.json || echo "No videos.json to add"
+            git commit -m "Full sync: Update video metadata from Facebook 🎬
+
+            Synced up to ${{ github.event.inputs.max_videos || '50' }} videos to playlist '${{ github.event.inputs.playlist_name || 'Da Facebook' }}'
+            
+            🤖 Generated with Claude Code (https://claude.ai/code)
+            
+            Co-Authored-By: Claude <noreply@anthropic.com>" || echo "No changes to commit"
+            git push || echo "Nothing to push"
+          else
+            echo "✅ No changes to commit"
+          fi
+
+      - name: Summary
+        run: |
+          echo "🎉 Full sync completed!"
+          echo "📂 Check your '${{ github.event.inputs.playlist_name || 'Da Facebook' }}' playlist on YouTube"
+          echo "📊 See data/videos.json for sync details"

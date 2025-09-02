@@ -1,4 +1,4 @@
-name: Sync Facebook Videos to YouTube
+name: Daily Sync New Facebook Videos to YouTube
 
 on:
   schedule:
@@ -48,7 +48,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Sync Facebook videos to YouTube
+      - name: Sync new Facebook videos to YouTube
         env:
           FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
@@ -57,10 +57,11 @@ jobs:
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
           if [ "${{ github.event.inputs.full_sync }}" = "true" ]; then
-            echo "Running full sync..."
+            echo "⚠️  WARNING: Using full sync in daily workflow!"
+            echo "💡 For full sync, use 'Full Sync Facebook Videos to YouTube' workflow instead"
             node scripts/sync-fb-youtube.js --full --playlist="${{ github.event.inputs.playlist_name || 'Da Facebook' }}"
           else
-            echo "Running incremental sync..."
+            echo "🔄 Running incremental sync for new videos only..."
             node scripts/sync-fb-youtube.js --playlist="${{ github.event.inputs.playlist_name || 'Da Facebook' }}"
           fi
 

@@ -199,7 +199,7 @@ class FacebookYouTubeSyncer {
   }
 
   async syncVideos(options = {}) {
-    const { fullSync = false, playlistName = 'Da Facebook' } = options;
+    const { fullSync = false, playlistName = 'Da Facebook', limit } = options;
     
     console.log('🎬 Starting Facebook to YouTube video sync...');
     
@@ -207,9 +207,12 @@ class FacebookYouTubeSyncer {
       // Get or create the playlist
       const playlistId = await this.findOrCreatePlaylist(playlistName);
       
-      const limit = fullSync ? 100 : 10; // Full sync gets more videos
+      // Determine video limit: custom limit > full sync default > normal sync default
+      const videoLimit = limit || (fullSync ? 100 : 10);
+      console.log(`📊 Fetching up to ${videoLimit} videos from Facebook...`);
+      
       const [fbVideos, existingData] = await Promise.all([
-        this.getFacebookVideos(limit),
+        this.getFacebookVideos(videoLimit),
         this.getExistingVideos()
       ]);
 
@@ -316,10 +319,12 @@ if (require.main === module) {
   // Check for command line arguments
   const fullSync = process.argv.includes('--full') || process.argv.includes('-f');
   const customPlaylist = process.argv.find(arg => arg.startsWith('--playlist='))?.split('=')[1];
+  const limitArg = process.argv.find(arg => arg.startsWith('--limit='))?.split('=')[1];
   
   const options = {
     fullSync,
-    playlistName: customPlaylist || 'Da Facebook'
+    playlistName: customPlaylist || 'Da Facebook',
+    limit: limitArg ? parseInt(limitArg) : undefined
   };
   
   if (fullSync) {
