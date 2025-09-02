@@ -754,6 +754,14 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    header {
+        padding: 0.5rem 0;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
     .mobile-menu-toggle {
         display: flex;
     }
@@ -828,9 +836,21 @@ footer p {
 }
 
 @media (max-width: 480px) {
-    nav {
-        flex-direction: column;
-        gap: 1rem;
+    header {
+        padding: 0.25rem 0;
+    }
+    
+    .logo img {
+        height: 35px;
+    }
+    
+    .mobile-menu-toggle {
+        padding: 0.25rem;
+    }
+    
+    .mobile-menu-toggle span {
+        width: 20px;
+        height: 2px;
     }
     
     .nav-links {
