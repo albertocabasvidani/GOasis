@@ -9,7 +9,8 @@
     "post-to-facebook": "node scripts/post-to-facebook.js",
     "sync-fb-youtube": "node scripts/sync-fb-youtube.js",
     "sync-fb-youtube-full": "node scripts/sync-fb-youtube.js --full",
-    "debug-fb-api": "node scripts/debug-fb-api.js"
+    "debug-fb-api": "node scripts/debug-fb-api.js",
+    "test-fb-content": "node scripts/test-fb-content.js"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14",
