@@ -7,17 +7,12 @@
     "fetch-map": "node scripts/fetch-past-concerts-map.js",
     "generate-fb-posts": "node scripts/generate-fb-posts.js",
     "post-to-facebook": "node scripts/post-to-facebook.js",
-    "sync-fb-youtube": "node scripts/sync-fb-youtube.js",
-    "sync-fb-youtube-full": "node scripts/sync-fb-youtube.js --full",
-    "debug-fb-api": "node scripts/debug-fb-api.js",
-    "test-fb-content": "node scripts/test-fb-content.js"
+    "debug-fb-api": "node scripts/debug-fb-api.js"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14",
     "canvas": "^2.11.2",
     "form-data": "^4.0.0",
-    "googleapis": "^126.0.1",
-    "node-fetch": "^2.7.0",
-    "open": "^8.4.0"
+    "node-fetch": "^2.7.0"
   }
 }
