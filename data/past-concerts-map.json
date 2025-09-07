@@ -1,37 +1,5 @@
 [
   {
-    "id": "1f0cb515-bb6a-806d-a4ef-c10f17db9def",
-    "venue": "Ristorante All’Invidia",
-    "location": "Pavia di Udine",
-    "city": "",
-    "date": "30 agosto 2025",
-    "time": "21:00",
-    "coordinates": {
-      "lat": 45.9940335,
-      "lng": 13.2692514,
-      "display_name": "All'Invidia, 9, Via Jacopo Marinoni, Zona Industriale Udinese, Cortello / Curtiel, Pavia di Udine / Pavie, Udine, Friuli-Venezia Giulia, 33050, Italia",
-      "type": "restaurant",
-      "confidence": "single_result"
-    },
-    "popupText": "<strong>Ristorante All’Invidia</strong><br>Pavia di Udine<br>30 agosto 2025"
-  },
-  {
-    "id": "1f0cb515-bb6a-80d9-8b29-fcaeeee0ec60",
-    "venue": "QT Quarantasei Tredici",
-    "location": "Premariacco",
-    "city": "",
-    "date": "29 agosto 2025",
-    "time": "21:00",
-    "coordinates": {
-      "lat": 46.0606866,
-      "lng": 13.3947783,
-      "display_name": "Premariacco, Udine, Friuli-Venezia Giulia, 33040, Italia",
-      "type": "administrative",
-      "confidence": "single_result"
-    },
-    "popupText": "<strong>QT Quarantasei Tredici</strong><br>Premariacco<br>29 agosto 2025"
-  },
-  {
     "id": "217cb515-bb6a-81d0-ae19-c05a5da7cc66",
     "venue": "Mulin di Braida",
     "location": "Saciletto di Ruda",
@@ -78,22 +46,6 @@
       "confidence": "single_result"
     },
     "popupText": "<strong>Verde Mare Club</strong><br>Caorle<br>18 luglio 2025"
-  },
-  {
-    "id": "1f0cb515-bb6a-807d-bd0c-f22b927a7cfd",
-    "venue": "La Corte",
-    "location": "Basaldella",
-    "city": "",
-    "date": "11 luglio 2025",
-    "time": "21:00",
-    "coordinates": {
-      "lat": 46.0287454,
-      "lng": 13.2030471,
-      "display_name": "Basaldella / Basandiele, Campoformido / Cjampfuarmit, Udine, Friuli-Venezia Giulia, 33030, Italia",
-      "type": "village",
-      "confidence": "multiple_results"
-    },
-    "popupText": "<strong>La Corte</strong><br>Basaldella<br>11 luglio 2025"
   },
   {
     "id": "194cb515-bb6a-809e-a660-da3a95c61140",
@@ -156,34 +108,6 @@
       "confidence": "multiple_results"
     },
     "popupText": "<strong>Crese Cup</strong><br>San Dorligo della Valle<br>14 giugno 2025"
-  },
-  {
-    "id": "194cb515-bb6a-8097-9d34-d8c6cedbbd32",
-    "venue": "Bistrot Bosio",
-    "location": "Staranzano",
-    "city": "",
-    "date": "22 maggio 2025",
-    "time": "21:00",
-    "coordinates": {
-      "lat": 45.8066266,
-      "lng": 13.5148144,
-      "display_name": "Panificio Pasticceria Bistrot Bosio, 153, Via Trieste, Villaraspa, Bistrigna, Staranzano, Gorizia, Friuli-Venezia Giulia, 34079, Italia"
-    },
-    "popupText": "<strong>Bistrot Bosio</strong><br>Staranzano<br>22 maggio 2025"
-  },
-  {
-    "id": "194cb515-bb6a-8068-81ba-ed54e2b98e60",
-    "venue": "Casa Bianca",
-    "location": "San Vito al Torre",
-    "city": "",
-    "date": "1 maggio 2025",
-    "time": "21:00",
-    "coordinates": {
-      "lat": 45.892511,
-      "lng": 13.3689731,
-      "display_name": "Via Casa Bianca, Crauglio / Cravuì, San Vito al Torre / San Vît de Tor, Udine, Friuli-Venezia Giulia, 33050, Italia"
-    },
-    "popupText": "<strong>Casa Bianca</strong><br>San Vito al Torre<br>1 maggio 2025"
   },
   {
     "id": "127cb515-bb6a-80ac-bd9e-f6e2d8dd23f4",
