@@ -41,7 +41,8 @@ The site automatically deploys to GitHub Pages via GitHub Actions on push to mai
 2. **GitHub Actions** → Daily automation (6:00 UTC)
 3. **Node.js Scripts** → Fetch and transform data
 4. **JSON Files** → Store structured data (`data/concerts.json`, `data/past-concerts-map.json`)
-5. **index.html** → Reads JSON and renders content dynamically
+5. **Automatic Deploy** → GitHub Pages deployment triggered by data changes
+6. **index.html** → Reads JSON and renders content dynamically on live site
 
 ### Key Integration Points
 
@@ -79,12 +80,12 @@ Styling is in `style.css` organized by:
 
 ### GitHub Actions Workflows
 
-- **`.github/workflows/pages.yml`**: Deploy to GitHub Pages
-- **`.github/workflows/update-concerts.yml`**: Daily concert data sync
+- **`.github/workflows/pages.yml`**: Deploy to GitHub Pages (triggered on every push to main)
+- **`.github/workflows/update-concerts.yml`**: Daily concert data sync (6:00 UTC) - automatically triggers deploy when data changes
 - **`.github/workflows/update-concert-map.yml`**: Update map coordinates
 - **`.github/workflows/generate-fb-images.yml`**: Generate social media content
 
-All workflows check for actual changes before committing to avoid empty commits.
+**Important**: The update-concerts workflow commits without `[skip ci]` to ensure automatic deployment when concert data is updated. All workflows check for actual changes before committing to avoid empty commits.
 
 ## Environment Variables
 
@@ -104,3 +105,13 @@ Required for automation (set in GitHub Secrets):
 6. **Image Naming**: Facebook posts use format `fb-post-concerts-YYYY-MM-DD-TIMESTAMP.png`
 7. **No Contact Forms**: The site uses social media and WhatsApp for contact - avoid adding complex contact forms
 8. **Video Integration**: YouTube embed with custom controls for sound toggle and forced 1080p quality
+9. **Automatic Deployment**: Concert data changes trigger immediate site deployment - no `[skip ci]` in update workflows
+
+## Troubleshooting
+
+### Missing Concert Data on Site
+If concerts appear in Notion but not on the live site:
+1. Check that `data/concerts.json` contains the missing concerts
+2. Verify the date filter in `scripts/fetch-concerts.js` (uses `on_or_after: today`)
+3. Ensure the update-concerts workflow doesn't use `[skip ci]` to allow automatic deployment
+4. Check GitHub Actions runs for both "Update Concerts from Notion" and "Deploy to GitHub Pages"
