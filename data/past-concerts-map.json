@@ -1,5 +1,21 @@
 [
   {
+    "id": "1f0cb515-bb6a-8086-9ff1-edafb0de04e7",
+    "venue": "Pizzeria Novecento",
+    "location": "Gradisca d’Isonzo",
+    "city": "",
+    "date": "12 settembre 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8814009,
+      "lng": 13.477972,
+      "display_name": "Pizzeria Ristorante Novecento, 32, Via Palmanova, Borgo Biasol, Gradisca d'Isonzo / Gardiscje, Gorizia, Friuli-Venezia Giulia, 34072, Italia",
+      "type": "restaurant",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Pizzeria Novecento</strong><br>Gradisca d’Isonzo<br>12 settembre 2025"
+  },
+  {
     "id": "217cb515-bb6a-81d0-ae19-c05a5da7cc66",
     "venue": "Mulin di Braida",
     "location": "Saciletto di Ruda",
