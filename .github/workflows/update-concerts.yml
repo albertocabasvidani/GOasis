@@ -50,13 +50,14 @@ jobs:
     - name: Check for changes
       id: git-check
       run: |
-        git diff --exit-code data/concerts.json img/fb-post-*.png || echo "changes=true" >> $GITHUB_OUTPUT
+        git diff --exit-code data/concerts.json || echo "changes=true" >> $GITHUB_OUTPUT
     
     - name: Commit and push if changed
       if: steps.git-check.outputs.changes == 'true'
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add data/concerts.json img/fb-post-*.png
+        git add data/concerts.json
+        git add img/fb-post-*.png 2>/dev/null || true
         git commit -m "Update concerts and Facebook post images from Notion"
         git push
