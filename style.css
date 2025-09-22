@@ -754,6 +754,36 @@ footer p {
     }
 }
 
+/* Facebook Fixed Icon */
+.facebook-fixed-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #1877f2;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.facebook-fixed-icon:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.4);
+    background: #166fe5;
+}
+
+.facebook-fixed-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header {
@@ -938,16 +968,28 @@ footer p {
     .video-section {
         padding: 2rem 0;
     }
-    
+
     .sound-toggle {
         width: 40px;
         height: 40px;
         bottom: 15px;
         left: 15px;
     }
-    
+
     .sound-icon {
         width: 20px;
         height: 20px;
+    }
+
+    .facebook-fixed-icon {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .facebook-fixed-icon svg {
+        width: 24px;
+        height: 24px;
     }
 }
