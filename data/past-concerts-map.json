@@ -1,5 +1,21 @@
 [
   {
+    "id": "1cdcb515-bb6a-8074-8151-c20ac09dc594",
+    "venue": "Garage Music Club",
+    "location": "Gradisca d’Isonzo",
+    "city": "",
+    "date": "10 ottobre 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8895509,
+      "lng": 13.5003287,
+      "display_name": "Gradisca d'Isonzo, Gradisca d'Isonzo / Gardiscje, Gorizia, Friuli-Venezia Giulia, 34072, Italia",
+      "type": "village",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Garage Music Club</strong><br>Gradisca d’Isonzo<br>10 ottobre 2025"
+  },
+  {
     "id": "265cb515-bb6a-80e5-bbea-c6866639a20b",
     "venue": "Hamerica’s",
     "location": "Trieste",
