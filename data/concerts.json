@@ -18,5 +18,15 @@
     "city": "",
     "notes": "",
     "acoustic": false
+  },
+  {
+    "day": "29",
+    "month": "05",
+    "year": 2026,
+    "venue": "Plan di Paluz",
+    "location": "Tarcento",
+    "city": "",
+    "notes": "",
+    "acoustic": true
   }
 ]
