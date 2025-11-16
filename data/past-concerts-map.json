@@ -1,5 +1,21 @@
 [
   {
+    "id": "252cb515-bb6a-80f8-95e8-ee1353202cd6",
+    "venue": "La Tana",
+    "location": "Udine",
+    "city": "",
+    "date": "15 novembre 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.0707625,
+      "lng": 13.2281005,
+      "display_name": "La Tana, Via Martignacco, Borgo Gemona / Borc Glemone, San Marco, Udine / Udin, Udine / Udin / Videm, Friuli-Venezia Giulia, 33100, Italia",
+      "type": "pub",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>La Tana</strong><br>Udine<br>15 novembre 2025"
+  },
+  {
     "id": "1cdcb515-bb6a-8074-8151-c20ac09dc594",
     "venue": "Garage Music Club",
     "location": "Gradisca d’Isonzo",
