@@ -1,5 +1,15 @@
 [
   {
+    "day": "19",
+    "month": "12",
+    "year": 2025,
+    "venue": "Bar Centrale",
+    "location": "Bertiolo",
+    "city": "",
+    "notes": "",
+    "acoustic": true
+  },
+  {
     "day": "24",
     "month": "01",
     "year": 2026,
