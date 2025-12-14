@@ -103,11 +103,11 @@
     "date": "18 luglio 2025",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.5975825,
-      "lng": 12.8877323,
-      "display_name": "Associazione Nazionale Marinai d'Italia, Piazza Municipio, Caorle, Venezia, Veneto, 30021, Italia",
-      "type": "community_centre",
-      "confidence": "multiple_results"
+      "lat": 45.5979147,
+      "lng": 12.8876282,
+      "display_name": "Caorle, Venezia, Veneto, 30021, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
     },
     "popupText": "<strong>Verde Mare Club</strong><br>Caorle<br>18 luglio 2025"
   },
@@ -281,11 +281,11 @@
     "date": "14 dicembre 2024",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.5069261,
-      "lng": 12.6478873,
-      "display_name": "Italia, Via Dante Alighieri, Lido di Jesolo, Jesolo, Venezia, Veneto, 30016, Italia",
-      "type": "hotel",
-      "confidence": "multiple_results"
+      "lat": 45.5367094,
+      "lng": 12.6383337,
+      "display_name": "Jesolo, Venezia, Veneto, 30016, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
     },
     "popupText": "<strong>Live Drink</strong><br>Jesolo<br>14 dicembre 2024"
   },
@@ -359,11 +359,11 @@
     "date": "23 agosto 2024",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.5069261,
-      "lng": 12.6478873,
-      "display_name": "Italia, Via Dante Alighieri, Lido di Jesolo, Jesolo, Venezia, Veneto, 30016, Italia",
-      "type": "hotel",
-      "confidence": "multiple_results"
+      "lat": 45.5367094,
+      "lng": 12.6383337,
+      "display_name": "Jesolo, Venezia, Veneto, 30016, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
     },
     "popupText": "<strong>Live Drink</strong><br>Jesolo<br>23 agosto 2024"
   },
