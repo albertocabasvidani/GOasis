@@ -1,5 +1,21 @@
 [
   {
+    "id": "2bacb515-bb6a-804e-b423-e429ac248b85",
+    "venue": "Bar Centrale",
+    "location": "Bertiolo",
+    "city": "",
+    "date": "19 dicembre 2025",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.9426667,
+      "lng": 13.0491805,
+      "display_name": "Bertiolo / Bertiûl, Udine / Udin / Videm, Friuli-Venezia Giulia, 33032, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Bar Centrale</strong><br>Bertiolo<br>19 dicembre 2025"
+  },
+  {
     "id": "252cb515-bb6a-80f8-95e8-ee1353202cd6",
     "venue": "La Tana",
     "location": "Udine",
