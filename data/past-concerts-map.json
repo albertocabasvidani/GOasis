@@ -1,5 +1,21 @@
 [
   {
+    "id": "29fcb515-bb6a-808a-a4bc-ce37bbbc98bd",
+    "venue": "Stella d’Oro",
+    "location": "Gemona",
+    "city": "",
+    "date": "24 gennaio 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.2766025,
+      "lng": 13.1394066,
+      "display_name": "Stella d'Oro, Gradinata del mercato, Bambins, Gemona del Friuli / Glemone, Udine / Udin / Videm, Friuli-Venezia Giulia, 33013, Italia",
+      "type": "pub",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Stella d’Oro</strong><br>Gemona<br>24 gennaio 2026"
+  },
+  {
     "id": "2bacb515-bb6a-804e-b423-e429ac248b85",
     "venue": "Bar Centrale",
     "location": "Bertiolo",
