@@ -18,5 +18,25 @@
     "city": "",
     "notes": "",
     "acoustic": true
+  },
+  {
+    "day": "20",
+    "month": "06",
+    "year": 2026,
+    "venue": "Motoraduno Bintarsfest",
+    "location": "Ruda",
+    "city": "",
+    "notes": "",
+    "acoustic": false
+  },
+  {
+    "day": "01",
+    "month": "07",
+    "year": 2026,
+    "venue": "La Conca",
+    "location": "Fontanafredda",
+    "city": "",
+    "notes": "",
+    "acoustic": false
   }
 ]
