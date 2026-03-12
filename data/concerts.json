@@ -38,5 +38,15 @@
     "city": "",
     "notes": "",
     "acoustic": false
+  },
+  {
+    "day": "28",
+    "month": "08",
+    "year": 2026,
+    "venue": "Chiosco Ai Salici",
+    "location": "Pagnacco",
+    "city": "",
+    "notes": "",
+    "acoustic": false
   }
 ]
