@@ -1,5 +1,21 @@
 [
   {
+    "id": "27fcb515-bb6a-801e-8dd3-e8c3e401a680",
+    "venue": "Bisboccia 2.0",
+    "location": "Turriaco",
+    "city": "",
+    "date": "14 marzo 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8199807,
+      "lng": 13.4466863,
+      "display_name": "Turriaco, Gorizia / Gurize / Gorica, Friuli-Venezia Giulia, 34070, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Bisboccia 2.0</strong><br>Turriaco<br>14 marzo 2026"
+  },
+  {
     "id": "29fcb515-bb6a-808a-a4bc-ce37bbbc98bd",
     "venue": "Stella d’Oro",
     "location": "Gemona",
