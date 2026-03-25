@@ -30,6 +30,26 @@
     "acoustic": false
   },
   {
+    "day": "16",
+    "month": "07",
+    "year": 2026,
+    "venue": "Falconera Restaurant",
+    "location": "Caorle",
+    "city": "",
+    "notes": "",
+    "acoustic": true
+  },
+  {
+    "day": "22",
+    "month": "08",
+    "year": 2026,
+    "venue": "Le Fornaci del Zarnic",
+    "location": "Rivignano Teor",
+    "city": "",
+    "notes": "",
+    "acoustic": true
+  },
+  {
     "day": "28",
     "month": "08",
     "year": 2026,
