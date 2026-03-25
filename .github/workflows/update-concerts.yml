@@ -61,3 +61,9 @@ jobs:
         git add img/fb-post-*.png 2>/dev/null || true
         git commit -m "Update concerts and Facebook post images from Notion"
         git push
+
+    - name: Trigger deploy to GitHub Pages
+      if: steps.git-check.outputs.changes == 'true'
+      run: gh workflow run pages.yml
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
