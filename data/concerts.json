@@ -58,5 +58,15 @@
     "city": "",
     "notes": "",
     "acoustic": false
+  },
+  {
+    "day": "20",
+    "month": "11",
+    "year": 2026,
+    "venue": "Il Mastro Birraio",
+    "location": "San Giocanni al Natisone",
+    "city": "",
+    "notes": "",
+    "acoustic": false
   }
 ]
