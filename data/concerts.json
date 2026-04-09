@@ -40,6 +40,16 @@
     "acoustic": true
   },
   {
+    "day": "26",
+    "month": "07",
+    "year": 2026,
+    "venue": "Festival di Majano",
+    "location": "Majano",
+    "city": "",
+    "notes": "",
+    "acoustic": false
+  },
+  {
     "day": "22",
     "month": "08",
     "year": 2026,
@@ -55,6 +65,16 @@
     "year": 2026,
     "venue": "Chiosco Ai Salici",
     "location": "Pagnacco",
+    "city": "",
+    "notes": "",
+    "acoustic": false
+  },
+  {
+    "day": "23",
+    "month": "10",
+    "year": 2026,
+    "venue": "Klub27",
+    "location": "Gorizia",
     "city": "",
     "notes": "",
     "acoustic": false
