@@ -1,5 +1,15 @@
 [
   {
+    "day": "23",
+    "month": "05",
+    "year": 2026,
+    "venue": "Osteria Cuore Friulano",
+    "location": "Tricesimo",
+    "city": "",
+    "notes": "",
+    "acoustic": false
+  },
+  {
     "day": "29",
     "month": "05",
     "year": 2026,
