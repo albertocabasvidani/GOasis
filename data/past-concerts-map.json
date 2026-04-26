@@ -151,11 +151,11 @@
     "date": "18 luglio 2025",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.5979147,
-      "lng": 12.8876282,
+      "lat": 45.6377929,
+      "lng": 12.905754,
       "display_name": "Caorle, Venezia, Veneto, 30021, Italia",
       "type": "administrative",
-      "confidence": "single_result"
+      "confidence": "multiple_results"
     },
     "popupText": "<strong>Verde Mare Club</strong><br>Caorle<br>18 luglio 2025"
   },
