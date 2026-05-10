@@ -151,11 +151,11 @@
     "date": "18 luglio 2025",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.5979147,
-      "lng": 12.8876282,
+      "lat": 45.6377929,
+      "lng": 12.905754,
       "display_name": "Caorle, Venezia, Veneto, 30021, Italia",
       "type": "administrative",
-      "confidence": "single_result"
+      "confidence": "multiple_results"
     },
     "popupText": "<strong>Verde Mare Club</strong><br>Caorle<br>18 luglio 2025"
   },
@@ -329,11 +329,11 @@
     "date": "14 dicembre 2024",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.5367094,
-      "lng": 12.6383337,
+      "lat": 45.5347443,
+      "lng": 12.6538449,
       "display_name": "Jesolo, Venezia, Veneto, 30016, Italia",
       "type": "administrative",
-      "confidence": "single_result"
+      "confidence": "multiple_results"
     },
     "popupText": "<strong>Live Drink</strong><br>Jesolo<br>14 dicembre 2024"
   },
@@ -407,11 +407,11 @@
     "date": "23 agosto 2024",
     "time": "21:00",
     "coordinates": {
-      "lat": 45.5367094,
-      "lng": 12.6383337,
+      "lat": 45.5347443,
+      "lng": 12.6538449,
       "display_name": "Jesolo, Venezia, Veneto, 30016, Italia",
       "type": "administrative",
-      "confidence": "single_result"
+      "confidence": "multiple_results"
     },
     "popupText": "<strong>Live Drink</strong><br>Jesolo<br>23 agosto 2024"
   },
