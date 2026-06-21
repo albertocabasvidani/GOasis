@@ -1,5 +1,37 @@
 [
   {
+    "id": "302cb515-bb6a-80f5-a521-dc9def05babb",
+    "venue": "Motoraduno Bintarsfest",
+    "location": "Ruda",
+    "city": "",
+    "date": "20 giugno 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8382313,
+      "lng": 13.4019302,
+      "display_name": "Ruda / Rude, Udine / Udin / Videm, Friuli-Venezia Giulia, 33050, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Motoraduno Bintarsfest</strong><br>Ruda<br>20 giugno 2026"
+  },
+  {
+    "id": "34dcb515-bb6a-8020-925e-d158b60e3b39",
+    "venue": "4PR",
+    "location": "Farra",
+    "city": "",
+    "date": "19 giugno 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.9019242,
+      "lng": 13.5165495,
+      "display_name": "4PR, Via Gradisca, Farra d'Isonzo / Fara, Gorizia / Gurize / Gorica, Friuli-Venezia Giulia, 34072, Italia",
+      "type": "pub",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>4PR</strong><br>Farra<br>19 giugno 2026"
+  },
+  {
     "id": "293cb515-bb6a-8067-8802-d89d6c4dbdb5",
     "venue": "Plan di Paluz",
     "location": "Tarcento",
