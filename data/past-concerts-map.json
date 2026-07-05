@@ -1,5 +1,21 @@
 [
   {
+    "id": "302cb515-bb6a-8052-aaa8-ea89563c500e",
+    "venue": "La Conca",
+    "location": "Fontanafredda",
+    "city": "",
+    "date": "1 luglio 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.9778571,
+      "lng": 12.5271042,
+      "display_name": "La Conca, Via la Croce, La Croce / La Crôs, Fontanafredda / Fontanefrede, Pordenone / Pordenon, Friuli-Venezia Giulia, 33074, Italia",
+      "type": "restaurant",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>La Conca</strong><br>Fontanafredda<br>1 luglio 2026"
+  },
+  {
     "id": "302cb515-bb6a-80f5-a521-dc9def05babb",
     "venue": "Motoraduno Bintarsfest",
     "location": "Ruda",
