@@ -1,5 +1,37 @@
 [
   {
+    "id": "369cb515-bb6a-807a-a0f1-f7e62861950b",
+    "venue": "Le Pipine Winebar",
+    "location": "Premariacco",
+    "city": "",
+    "date": "17 luglio 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.0444995,
+      "lng": 13.3794891,
+      "display_name": "Premariacco, Udine / Udin / Videm, Friuli-Venezia Giulia, 33040, Italia",
+      "type": "administrative",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Le Pipine Winebar</strong><br>Premariacco<br>17 luglio 2026"
+  },
+  {
+    "id": "32ecb515-bb6a-80ca-8c10-ecf91ab0e4ea",
+    "venue": "Falconera Restaurant",
+    "location": "Caorle",
+    "city": "",
+    "date": "16 luglio 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.6172946,
+      "lng": 12.909857,
+      "display_name": "Ristorante camping Falconera, Via dei Casoni, Caorle, Venezia, Veneto, 30021, Italia",
+      "type": "restaurant",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>Falconera Restaurant</strong><br>Caorle<br>16 luglio 2026"
+  },
+  {
     "id": "302cb515-bb6a-8052-aaa8-ea89563c500e",
     "venue": "La Conca",
     "location": "Fontanafredda",
