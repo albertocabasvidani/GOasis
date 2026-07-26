@@ -1,5 +1,21 @@
 [
   {
+    "id": "365cb515-bb6a-802f-9a14-e0b00309f3af",
+    "venue": "Chiosco Farabus",
+    "location": "Martignacco",
+    "city": "",
+    "date": "19 luglio 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.0977183,
+      "lng": 13.1347959,
+      "display_name": "Martignacco / Martignà, Udine / Udin / Videm, Friuli-Venezia Giulia, 33035, Italia",
+      "type": "village",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Chiosco Farabus</strong><br>Martignacco<br>19 luglio 2026"
+  },
+  {
     "id": "369cb515-bb6a-807a-a0f1-f7e62861950b",
     "venue": "Le Pipine Winebar",
     "location": "Premariacco",
