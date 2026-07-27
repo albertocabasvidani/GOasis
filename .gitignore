@@ -1,3 +1,9 @@
 node_modules/
 .env
-.DS_Storevideo/*.mov
+.DS_Store
+video/*.mov
+
+# artefatti di sessione Claude Code
+.playwright-cli/
+plans/
+tmp/
