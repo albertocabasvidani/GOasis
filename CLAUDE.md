@@ -72,10 +72,12 @@ The entire website is in a single `index.html` file with embedded JavaScript for
 - YouTube video integration with custom controls
 - Responsive mobile menu
 - Smooth scroll navigation
+- Fixed Facebook icon always visible for social media access
 
 Styling is in `style.css` organized by:
 - Base styles and variables
 - Component-specific sections (hero, band, concerts, gallery, video, etc.)
+- Fixed UI elements (Facebook icon, sound toggle)
 - Responsive breakpoints for mobile/tablet/desktop
 
 ### GitHub Actions Workflows
@@ -105,7 +107,8 @@ Required for automation (set in GitHub Secrets):
 6. **Image Naming**: Facebook posts use format `fb-post-concerts-YYYY-MM-DD-TIMESTAMP.png`
 7. **No Contact Forms**: The site uses social media and WhatsApp for contact - avoid adding complex contact forms
 8. **Video Integration**: YouTube embed with custom controls for sound toggle and forced 1080p quality
-9. **Automatic Deployment**: Concert data changes trigger immediate site deployment - no `[skip ci]` in update workflows
+9. **Fixed Social Elements**: Fixed Facebook icon (bottom-right) always visible for easy social media access
+10. **Automatic Deployment**: Concert data changes trigger immediate site deployment - no `[skip ci]` in update workflows
 
 ## Troubleshooting
 
