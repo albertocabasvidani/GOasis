@@ -1,5 +1,21 @@
 [
   {
+    "id": "32ecb515-bb6a-80c7-80f5-c409a1a85292",
+    "venue": "Le Fornaci del Zarnic",
+    "location": "Rivignano Teor",
+    "city": "",
+    "date": "22 agosto 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8613003,
+      "lng": 13.0475691,
+      "display_name": "Rivignano Teor / Rivignan Teôr, Udine, Friuli-Venezia Giulia, 33061, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Le Fornaci del Zarnic</strong><br>Rivignano Teor<br>22 agosto 2026"
+  },
+  {
     "id": "33dcb515-bb6a-8094-8fa4-cb8c458132ad",
     "venue": "Festival di Majano",
     "location": "Majano",
