@@ -1,5 +1,21 @@
 [
   {
+    "id": "320cb515-bb6a-803c-9607-dc8b33578975",
+    "venue": "Chiosco Ai Salici",
+    "location": "Pagnacco",
+    "city": "",
+    "date": "28 agosto 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 46.1242099,
+      "lng": 13.1869625,
+      "display_name": "Pagnacco / Pagnà, Udine, Friuli-Venezia Giulia, 33010, Italia",
+      "type": "administrative",
+      "confidence": "single_result"
+    },
+    "popupText": "<strong>Chiosco Ai Salici</strong><br>Pagnacco<br>28 agosto 2026"
+  },
+  {
     "id": "32ecb515-bb6a-80c7-80f5-c409a1a85292",
     "venue": "Le Fornaci del Zarnic",
     "location": "Rivignano Teor",
