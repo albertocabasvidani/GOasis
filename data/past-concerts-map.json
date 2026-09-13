@@ -1,5 +1,21 @@
 [
   {
+    "id": "3a4cb515-bb6a-816e-8741-c812ae562baf",
+    "venue": "L'Aratro Birreria",
+    "location": "Aiello del Friuli",
+    "city": "",
+    "date": "11 settembre 2026",
+    "time": "21:00",
+    "coordinates": {
+      "lat": 45.8716004,
+      "lng": 13.3552648,
+      "display_name": "Aiello del Friuli, Udine, Friuli-Venezia Giulia, 33041, Italia",
+      "type": "administrative",
+      "confidence": "multiple_results"
+    },
+    "popupText": "<strong>L'Aratro Birreria</strong><br>Aiello del Friuli<br>11 settembre 2026"
+  },
+  {
     "id": "320cb515-bb6a-803c-9607-dc8b33578975",
     "venue": "Chiosco Ai Salici",
     "location": "Pagnacco",
